@@ -30,7 +30,7 @@ const DevicePage = ({
   return (
     <div className="devicePage">
       <div className="row col-sm justify-content-center">
-        <h5>SECTION TWO</h5>
+        <h5>TECHNICIANS</h5>
       </div>
       <div className="container border border-dark p-5">
         <div className="row col-sm justify-content-center m-1">
@@ -90,7 +90,7 @@ const DevicePage = ({
           <h5>Total Device Runs : {whoToRun || ""}</h5>{" "}
         </div>
         <div className="row col-sm">
-          <h5>Who and How will you run these patients? </h5>
+          <h5>Who will lead running patients? </h5>
         </div>
         <div className="row col-sm">
           <input

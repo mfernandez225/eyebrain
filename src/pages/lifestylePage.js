@@ -26,7 +26,7 @@ const LifestylePage = ({
   return (
     <div className="lifestylePage">
       <div className="row col-sm justify-content-center">
-        <h5>SECTION ONE</h5>
+        <h5>FRONT DESK</h5>
       </div>
       <div className="container border border-dark p-5">
         <div className="row col-sm justify-content-center m-1">
@@ -86,7 +86,7 @@ const LifestylePage = ({
           <h5>Total Indexes: {whoToIndex || ""}</h5>{" "}
         </div>
         <div className="row col-sm">
-          <h5>Who and How will you execute handing these index's out? </h5>
+          <h5>Who will lead handing these index's out? </h5>
         </div>
         <div className="row col-sm">
           <input

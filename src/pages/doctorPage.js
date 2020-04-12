@@ -27,7 +27,7 @@ const DoctorPage = ({
   return (
     <div className="doctorPage">
       <div className="row col-sm justify-content-center">
-        <h5>SECTION THREE</h5>
+        <h5>EXAM LANE</h5>
       </div>
       <div className="container border border-dark p-5">
         <div className="row col-sm">

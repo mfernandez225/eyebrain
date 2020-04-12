@@ -4,6 +4,7 @@ import LifestylePage from "./pages/lifestylePage";
 import DevicePage from "./pages/devicePage";
 import DoctorPage from "./pages/doctorPage";
 import ResultPage from "./pages/resultPage";
+import ProfitPage from "./pages/profitPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
@@ -112,8 +113,10 @@ function App() {
               currentFlow={currentFlow}
               whoToIndex={whoToIndex}
               whoToRun={whoToRun}
-              patientsHelped={totalConversionNumber}
             />
+          </Route>
+          <Route exact path="/profitPage">
+            <ProfitPage patientsHelped={totalConversionNumber} />
           </Route>
         </Switch>
       </Router>
