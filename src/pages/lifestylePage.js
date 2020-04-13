@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Footer from "../components/footer";
 
 const INDEX_ALL_PATIENTS = 1;
 const NINETY = 0.9;
@@ -7,13 +7,10 @@ const SEVENTY_FIVE = 0.75;
 const PRESET_INDEX_VALUES = [INDEX_ALL_PATIENTS, NINETY, SEVENTY_FIVE];
 
 const LifestylePage = ({
-  frontDeskNotes,
-  setFrontDeskNotes,
-  setLifeStyleIndex,
-  indexChampion,
-  setIndexChampion,
-  whoToIndex,
-  lifestyleIndex,
+  questions: { frontDeskNotes, indexChampion, lifestyleIndex },
+  calculations: { whoToIndex },
+  handleQuestionChange,
+  setQuestionValue,
 }) => {
   const lifestyleIndexIsPresent = !!lifestyleIndex;
   const lifestyleIndexIsPresetValue = PRESET_INDEX_VALUES.includes(
@@ -39,7 +36,9 @@ const LifestylePage = ({
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setLifeStyleIndex(INDEX_ALL_PATIENTS)}
+            onClick={() =>
+              setQuestionValue("lifestyleIndex", INDEX_ALL_PATIENTS)
+            }
           >
             100%
           </button>
@@ -49,7 +48,7 @@ const LifestylePage = ({
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setLifeStyleIndex(NINETY)}
+            onClick={() => setQuestionValue("lifestyleIndex", NINETY)}
           >
             90%
           </button>
@@ -59,7 +58,7 @@ const LifestylePage = ({
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setLifeStyleIndex(SEVENTY_FIVE)}
+            onClick={() => setQuestionValue("lifestyleIndex", SEVENTY_FIVE)}
           >
             75%
           </button>{" "}
@@ -78,7 +77,9 @@ const LifestylePage = ({
               placeholder="Custom"
               name="custom"
               value={Math.round(lifestyleIndex * 100)}
-              onChange={(e) => setLifeStyleIndex(e.target.value / 100)}
+              onChange={(e) =>
+                setQuestionValue("lifestyleIndex", e.currentTarget.value / 100)
+              }
             />
           )}
         </div>
@@ -86,7 +87,7 @@ const LifestylePage = ({
           <h5>Total Indexes: {whoToIndex || ""}</h5>{" "}
         </div>
         <div className="row col-sm">
-          <h5>Who will lead handing these index's out? </h5>
+          <h5>Who will lead handing these indexes out?</h5>
         </div>
         <div className="row col-sm">
           <input
@@ -95,11 +96,11 @@ const LifestylePage = ({
             placeholder="Who is the Index Champion?"
             name="indexChampion"
             value={indexChampion}
-            onChange={(e) => setIndexChampion(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
-          <h5>Notes : </h5>
+          <h5>Notes:</h5>
         </div>
         <div className="row col-sm">
           <input
@@ -108,26 +109,11 @@ const LifestylePage = ({
             placeholder="Notes"
             name="frontDeskNotes"
             value={frontDeskNotes}
-            onChange={(e) => setFrontDeskNotes(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
       </div>
-      <footer
-        className="row justify-content-between fixed-bottom"
-        // className={`btn btn-link ${!surveyComplete && "disabled"}`}
-        // disabled={!surveyComplete}
-      >
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/">
-            BACK
-          </Link>
-        </div>
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/devicePage">
-            NEXT
-          </Link>
-        </div>
-      </footer>
+      <Footer backUrl="/" nextUrl="/devicePage" />
     </div>
   );
 };

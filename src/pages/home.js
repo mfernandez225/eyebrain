@@ -1,25 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Footer from "../components/footer";
 
 const Home = ({
-  practiceName,
-  setPracticeName,
-  investQuestion,
-  setInvestQuestion,
-  odDays,
-  setodDays,
-  dailyComps,
-  setDailyComps,
-  numberOfOd,
-  setnumberOfOd,
-  frontDeskStaff,
-  setFrontDeskStaff,
-  numberOfTechs,
-  setNumberOfTechs,
-  whatMotivates,
-  setWhatMotivates,
+  questions: {
+    practiceName,
+    investQuestion,
+    odDays,
+    dailyComps,
+    numberOfOd,
+    frontDeskStaff,
+    numberOfTechs,
+    whatMotivates,
+  },
+  handleQuestionChange,
 }) => {
-  // const surveyComplete =
+  // const canContinue =
   //   dailyComps &&
   //   practiceName &&
   //   whatMotivates &&
@@ -44,7 +39,7 @@ const Home = ({
             placeholder="Practice Name"
             name="practiceName"
             value={practiceName}
-            onChange={(e) => setPracticeName(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -57,7 +52,7 @@ const Home = ({
             placeholder="Why?"
             name="investQuestion"
             value={investQuestion}
-            onChange={(e) => setInvestQuestion(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -66,11 +61,11 @@ const Home = ({
         <div className="row col-sm">
           <input
             className="form-control"
-            type="text"
+            type="number"
             placeholder="# of OD days"
             name="odDays"
             value={odDays}
-            onChange={(e) => setodDays(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -79,11 +74,11 @@ const Home = ({
         <div className="row col-sm">
           <input
             className="form-control"
-            type="text"
+            type="number"
             placeholder="Daily Exam Count"
             name="dailyComps"
             value={dailyComps}
-            onChange={(e) => setDailyComps(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -92,11 +87,11 @@ const Home = ({
         <div className="row col-sm">
           <input
             className="form-control"
-            type="text"
+            type="number"
             placeholder="# of OD's"
             name="numberOfOd"
             value={numberOfOd}
-            onChange={(e) => setnumberOfOd(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -109,7 +104,7 @@ const Home = ({
             placeholder="Front Desk Staff"
             name="frontDeskStaff"
             value={frontDeskStaff}
-            onChange={(e) => setFrontDeskStaff(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -122,7 +117,7 @@ const Home = ({
             placeholder="# of Technicians"
             name="numberOfTechs"
             value={numberOfTechs}
-            onChange={(e) => setNumberOfTechs(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -135,21 +130,11 @@ const Home = ({
             placeholder="Patients lives changed? Practice Profitibility? Pay off the device ASAP?"
             name="whatMotivates"
             value={whatMotivates}
-            onChange={(e) => setWhatMotivates(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
       </div>
-      <footer className="row justify-content-end fixed-bottom">
-        <div
-          className="col-xs-1 btn btn-secondary btn-sm m-5"
-          // className={`btn btn-link ${!surveyComplete && "disabled"}`}
-          // disabled={!surveyComplete}
-        >
-          <Link className="text-decoration-none text-light" to="/lifestylePage">
-            NEXT
-          </Link>
-        </div>
-      </footer>
+      <Footer nextUrl="/lifestylePage" />
     </div>
   );
 };

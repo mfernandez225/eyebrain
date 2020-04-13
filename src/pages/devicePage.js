@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Footer from "../components/footer";
 
 const DEVICE_ALL_PATIENTS = 1;
 const SYMPTOMATIC_PATIENTS = 0.5;
@@ -11,13 +11,10 @@ const DEVICE_PRESET_INDEX_VALUES = [
 ];
 
 const DevicePage = ({
-  deviceChampion,
-  setDeviceChampion,
-  techNotes,
-  setTechNotes,
-  setDeviceRuns,
-  deviceRuns,
-  whoToRun,
+  questions: { deviceChampion, techNotes, deviceRuns },
+  calculations: { whoToRun },
+  handleQuestionChange,
+  setQuestionValue,
 }) => {
   const deviceRunsIsPresent = !!deviceRuns;
   const deviceRunsIsPresetValue = DEVICE_PRESET_INDEX_VALUES.includes(
@@ -43,7 +40,7 @@ const DevicePage = ({
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setDeviceRuns(DEVICE_ALL_PATIENTS)}
+            onClick={() => setQuestionValue("deviceRuns", DEVICE_ALL_PATIENTS)}
           >
             All Patients
           </button>
@@ -53,7 +50,7 @@ const DevicePage = ({
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setDeviceRuns(SYMPTOMATIC_PATIENTS)}
+            onClick={() => setQuestionValue("deviceRuns", SYMPTOMATIC_PATIENTS)}
           >
             Symptomatic Patients
           </button>
@@ -63,7 +60,7 @@ const DevicePage = ({
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setDeviceRuns(HIGHLY_SYMPTOMATIC)}
+            onClick={() => setQuestionValue("deviceRuns", HIGHLY_SYMPTOMATIC)}
           >
             Highly Symptomatic
           </button>
@@ -82,7 +79,9 @@ const DevicePage = ({
               placeholder="Custom"
               name="custom"
               value={Math.round(deviceRuns * 100)}
-              onChange={(e) => setDeviceRuns(e.target.value / 100)}
+              onChange={(e) =>
+                setQuestionValue("deviceRuns", e.target.value / 100)
+              }
             />
           )}
         </div>
@@ -99,7 +98,7 @@ const DevicePage = ({
             placeholder="Who is the Device Champion?"
             name="deviceChampion"
             value={deviceChampion}
-            onChange={(e) => setDeviceChampion(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
@@ -112,24 +111,11 @@ const DevicePage = ({
             placeholder="Notes"
             name="techNotes"
             value={techNotes}
-            onChange={(e) => setTechNotes(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
       </div>
-      <footer className="row justify-content-between fixed-bottom">
-        {/* // className={`btn btn-link ${!surveyComplete && "disabled"}`}
-      // disabled={!surveyComplete}> */}
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/lifestylePage">
-            BACK
-          </Link>
-        </div>
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/DoctorPage">
-            NEXT
-          </Link>
-        </div>
-      </footer>
+      <Footer backUrl="/lifestylePage" nextUrl="/DoctorPage" />
     </div>
   );
 };

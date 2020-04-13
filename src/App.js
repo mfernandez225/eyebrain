@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Home from "./pages/home";
 import LifestylePage from "./pages/lifestylePage";
 import DevicePage from "./pages/devicePage";
@@ -9,35 +9,110 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  const [practiceName, setPracticeName] = useState("");
-  const [investQuestion, setInvestQuestion] = useState("");
-  const [dailyComps, setDailyComps] = useState("");
-  const [odDays, setodDays] = useState("");
-  const [whatMotivates, setWhatMotivates] = useState("");
-  const [frontDeskStaff, setFrontDeskStaff] = useState("");
-  const [frontDeskNotes, setFrontDeskNotes] = useState("");
-  const [indexChampion, setIndexChampion] = useState("");
-  const [lifestyleIndex, setLifeStyleIndex] = useState("");
-  const [numberOfTechs, setNumberOfTechs] = useState("");
-  const [deviceChampion, setDeviceChampion] = useState("");
-  const [techNotes, setTechNotes] = useState("");
-  const [deviceRuns, setDeviceRuns] = useState("");
-  const [timeAllotted, setTimeAllotted] = useState("");
-  const [numberOfOd, setnumberOfOd] = useState("");
-  const [currentFlow, setCurrentFlow] = useState("");
-  const [lensConversion, setLensConversion] = useState("");
-  const [examLaneNotes, setExamLaneNotes] = useState("");
+  const [questions, setQuestions] = useState({
+    // HOME PAGE
+    practiceName: "",
+    investQuestion: "",
+    odDays: "5",
+    dailyComps: "10",
+    numberOfOd: "",
+    frontDeskStaff: "",
+    numberOfTechs: "",
+    whatMotivates: "",
+    // LIFESTYLE PAGE
+    frontDeskNotes: "",
+    indexChampion: "",
+    lifestyleIndex: "1",
+    // DEVICE PAGE
+    deviceChampion: "",
+    techNotes: "",
+    deviceRuns: ".5",
+    // DOCTOR PAGE
+    timeAllotted: "",
+    currentFlow: "",
+    impactTalk: "1",
+    examLaneNotes: "",
+    // PROFIT PAGE
+    lensConversion: "",
+  });
+  const [calculations, setCalculations] = useState({});
 
-  let whoToIndex;
-  if (dailyComps && lifestyleIndex)
-    whoToIndex = Math.round(dailyComps * lifestyleIndex);
+  // Destructuring for easy useEffect dependencies.
+  const {
+    dailyComps,
+    lifestyleIndex,
+    deviceRuns,
+    impactTalk,
+    lensConversion,
+    odDays,
+  } = questions;
+  const { whoToIndex, whoToRun, whoToTalkTo, weeklyConversions } = calculations;
 
-  let whoToRun;
-  if (whoToIndex && deviceRuns) whoToRun = Math.round(whoToIndex * deviceRuns);
+  // All calculations.
+  useEffect(() => {
+    if (dailyComps && lifestyleIndex)
+      setCalculations((prev) => ({
+        ...prev,
+        whoToIndex: Math.round(dailyComps * lifestyleIndex),
+      }));
 
-  let totalConversionNumber;
-  if (whoToRun && lensConversion && odDays)
-    totalConversionNumber = Math.round(whoToRun * lensConversion * odDays);
+    if (whoToIndex && deviceRuns)
+      setCalculations((prev) => ({
+        ...prev,
+        whoToRun: Math.round(whoToIndex * deviceRuns),
+      }));
+
+    if (whoToRun && impactTalk)
+      setCalculations((prev) => ({
+        ...prev,
+        whoToTalkTo: Math.round(whoToRun * impactTalk),
+      }));
+
+    if (whoToTalkTo && lensConversion && odDays) {
+      const newWeeklyConversions = Math.round(
+        whoToTalkTo * lensConversion * odDays
+      );
+
+      const newYearlyConversions = Math.round(newWeeklyConversions * 50);
+      const newMonthlyConversions = Math.round(newYearlyConversions / 12);
+      setCalculations((prev) => ({
+        ...prev,
+        weeklyConversions: newWeeklyConversions,
+        monthlyConversions: newMonthlyConversions,
+        yearlyConversions: newYearlyConversions,
+        weeklyRoi: weeklyConversions * 400,
+        monthlyRoi: newMonthlyConversions * 400,
+        yearlyRoi: newYearlyConversions * 400,
+      }));
+    }
+  }, [
+    dailyComps,
+    lifestyleIndex,
+    deviceRuns,
+    impactTalk,
+    lensConversion,
+    odDays,
+    whoToIndex,
+    whoToRun,
+    whoToTalkTo,
+    weeklyConversions,
+  ]);
+
+  const handleQuestionChange = (e) => {
+    const name = e.currentTarget.name;
+    const value = e.currentTarget.value;
+    setQuestions((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const setQuestionValue = (name, value) => {
+    setQuestions((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   return (
     <div className="App container-fluid">
@@ -45,78 +120,44 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home
-              practiceName={practiceName}
-              setPracticeName={setPracticeName}
-              investQuestion={investQuestion}
-              setInvestQuestion={setInvestQuestion}
-              dailyComps={dailyComps}
-              setDailyComps={setDailyComps}
-              odDays={odDays}
-              setodDays={setodDays}
-              whatMotivates={whatMotivates}
-              setWhatMotivates={setWhatMotivates}
-              frontDeskStaff={frontDeskStaff}
-              setFrontDeskStaff={setFrontDeskStaff}
-              numberOfTechs={numberOfTechs}
-              setNumberOfTechs={setNumberOfTechs}
-              whoToIndex={whoToIndex}
-              numberOfOd={numberOfOd}
-              setnumberOfOd={setnumberOfOd}
+              questions={questions}
+              handleQuestionChange={handleQuestionChange}
             />
           </Route>
           <Route exact path="/lifestylePage">
             <LifestylePage
-              frontDeskNotes={frontDeskNotes}
-              setFrontDeskNotes={setFrontDeskNotes}
-              indexChampion={indexChampion}
-              setIndexChampion={setIndexChampion}
-              lifestyleIndex={lifestyleIndex}
-              setLifeStyleIndex={setLifeStyleIndex}
-              whoToIndex={whoToIndex}
+              questions={questions}
+              handleQuestionChange={handleQuestionChange}
+              setQuestionValue={setQuestionValue}
+              calculations={calculations}
             />
           </Route>
           <Route exact path="/devicePage">
             <DevicePage
-              deviceChampion={deviceChampion}
-              setDeviceChampion={setDeviceChampion}
-              techNotes={techNotes}
-              setTechNotes={setTechNotes}
-              deviceRuns={deviceRuns}
-              setDeviceRuns={setDeviceRuns}
-              whoToRun={whoToRun}
+              questions={questions}
+              handleQuestionChange={handleQuestionChange}
+              setQuestionValue={setQuestionValue}
+              calculations={calculations}
             />
           </Route>
           <Route exact path="/doctorPage">
             <DoctorPage
-              timeAllotted={timeAllotted}
-              setTimeAllotted={setTimeAllotted}
-              currentFlow={currentFlow}
-              setCurrentFlow={setCurrentFlow}
-              lensConversion={lensConversion}
-              setLensConversion={setLensConversion}
-              examLaneNotes={examLaneNotes}
-              setExamLaneNotes={setExamLaneNotes}
-              patientsHelped={totalConversionNumber}
+              questions={questions}
+              handleQuestionChange={handleQuestionChange}
+              setQuestionValue={setQuestionValue}
+              calculations={calculations}
             />
           </Route>
           <Route exact path="/resultPage">
-            <ResultPage
-              practiceName={practiceName}
-              investQuestion={investQuestion}
-              whatMotivates={whatMotivates}
-              dailyComps={dailyComps}
-              frontDeskNotes={frontDeskNotes}
-              indexChampion={indexChampion}
-              techNotes={techNotes}
-              deviceChampion={deviceChampion}
-              examLaneNotes={examLaneNotes}
-              currentFlow={currentFlow}
-              whoToIndex={whoToIndex}
-              whoToRun={whoToRun}
-            />
+            <ResultPage questions={questions} calculations={calculations} />
           </Route>
           <Route exact path="/profitPage">
-            <ProfitPage patientsHelped={totalConversionNumber} />
+            <ProfitPage
+              questions={questions}
+              handleQuestionChange={handleQuestionChange}
+              setQuestionValue={setQuestionValue}
+              calculations={calculations}
+            />
           </Route>
         </Switch>
       </Router>

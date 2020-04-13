@@ -1,27 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Footer from "../components/footer";
 
-const TWENTY = 0.2;
-const TEN = 0.1;
-const FIVE = 0.05;
-const CONVERSION_VALUES = [TWENTY, TEN, FIVE];
+const TALK_ALL_CANDIDATES = 1;
+const TALK_FIFTY = 0.5;
+const TALK_TWENTY_FIVE = 0.25;
+const TALK_VALUES = [TALK_ALL_CANDIDATES, TALK_FIFTY, TALK_TWENTY_FIVE];
 
 const DoctorPage = ({
-  timeAllotted,
-  setTimeAllotted,
-  currentFlow,
-  setCurrentFlow,
-  lensConversion,
-  setLensConversion,
-  examLaneNotes,
-  setExamLaneNotes,
-  patientsHelped,
+  questions: { timeAllotted, currentFlow, impactTalk, examLaneNotes },
+  calculations: { whoToTalkTo },
+  handleQuestionChange,
+  setQuestionValue,
 }) => {
-  const conversionIsPresent = !!lensConversion;
-  const conversionIsPresetValue = CONVERSION_VALUES.includes(lensConversion);
+  const impactTalkIsPresent = !!impactTalk;
+  const impactTalkIsPresetValue = TALK_VALUES.includes(impactTalk);
 
-  const [showConversion, setShowConversion] = useState(
-    conversionIsPresent && conversionIsPresetValue
+  const [showImpactTalk, setShowImpactTalk] = useState(
+    impactTalkIsPresent && !impactTalkIsPresetValue
   );
   // const surveyComplete = timeAllotted && currentFlow && examLaneNotes;
   return (
@@ -31,20 +26,20 @@ const DoctorPage = ({
       </div>
       <div className="container border border-dark p-5">
         <div className="row col-sm">
-          <h5>Time Alloted for Eye Exam : </h5>
+          <h5>Time Alloted for Eye Exam: </h5>
         </div>
         <div className="row col-sm">
           <input
             className="form-control"
-            type="text"
+            type="number"
             placeholder="Minutes"
             name="timeAllotted"
             value={timeAllotted}
-            onChange={(e) => setTimeAllotted(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
-          <h5>Current Flow to Optical : </h5>
+          <h5>Current Flow to Optical: </h5>
         </div>
         <div className="row col-sm">
           <input
@@ -53,11 +48,11 @@ const DoctorPage = ({
             placeholder="Current Flow"
             name="currentFlow"
             value={currentFlow}
-            onChange={(e) => setCurrentFlow(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm">
-          <h5>Notes : </h5>
+          <h5>Notes: </h5>
         </div>
         <div className="row col-sm">
           <input
@@ -66,82 +61,72 @@ const DoctorPage = ({
             placeholder="Notes"
             name="examLaneNotes"
             value={examLaneNotes}
-            onChange={(e) => setExamLaneNotes(e.target.value)}
+            onChange={handleQuestionChange}
           />
         </div>
         <div className="row col-sm justify-content-center m-1">
-          <h5>Neurolens Conversion</h5>
+          <h5>
+            What Percentage of Patients will you have Impactful Conversations
+            with?
+          </h5>
         </div>
         <div className="row col-sm btn-group m-1">
           <button
             className={`btn btn-${
-              !showConversion && lensConversion === TWENTY
+              !showImpactTalk && impactTalk === TALK_ALL_CANDIDATES
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setLensConversion(TWENTY)}
+            onClick={() => setQuestionValue("impactTalk", TALK_ALL_CANDIDATES)}
           >
-            20%
+            100%
           </button>
           <button
             className={`btn btn-${
-              !showConversion && lensConversion === TEN
+              !showImpactTalk && impactTalk === TALK_FIFTY
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setLensConversion(TEN)}
+            onClick={() => setQuestionValue("impactTalk", TALK_FIFTY)}
           >
-            10%
+            50%
           </button>
           <button
             className={`btn btn-${
-              !showConversion && lensConversion === FIVE
+              !showImpactTalk && impactTalk === TALK_TWENTY_FIVE
                 ? "success"
                 : "secondary"
             } m-1`}
-            onClick={(e) => setLensConversion(FIVE)}
+            onClick={() => setQuestionValue("impactTalk", TALK_TWENTY_FIVE)}
           >
-            5%
+            25%
           </button>{" "}
           <button
             className={`btn btn-${
-              showConversion ? "success" : "secondary"
+              showImpactTalk ? "success" : "secondary"
             } m-1`}
-            onClick={() => setShowConversion((curr) => !curr)}
+            onClick={() => setShowImpactTalk((curr) => !curr)}
           >
             Custom
           </button>
-          {showConversion && (
+          {showImpactTalk && (
             <input
               className="form-control"
               type="number"
               placeholder="Custom"
               name="custom"
-              value={Math.round(lensConversion * 100)}
-              onChange={(e) => setLensConversion(e.target.value / 100)}
+              value={Math.round(impactTalk * 100)}
+              onChange={(e) =>
+                setQuestionValue("impactTalk", e.target.value / 100)
+              }
             />
           )}
         </div>
         <div className="row col-sm justify-content-center">
-          <h5>
-            Estimated number of patients treated per week:{patientsHelped || ""}
-          </h5>{" "}
+          <h5>Total Conversations : {whoToTalkTo || ""}</h5>{" "}
         </div>
       </div>
-      <footer className="row justify-content-between fixed-bottom">
-        {/* // className={`btn btn-link ${!surveyComplete && "disabled"}`}
-        // disabled={!surveyComplete}> */}
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/devicePage">
-            BACK
-          </Link>
-        </div>
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/resultPage">
-            NEXT
-          </Link>
-        </div>
-      </footer>
+      <Footer backUrl="/devicePage" nextUrl="/resultPage" />
     </div>
   );
 };

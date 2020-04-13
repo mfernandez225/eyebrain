@@ -1,17 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Footer from "../components/footer";
 
 const resultPage = ({
-  investQuestion,
-  whatMotivates,
-  frontDeskNotes,
-  indexChampion,
-  techNotes,
-  deviceChampion,
-  examLaneNotes,
-  whoToIndex,
-  whoToRun,
-  currentFlow,
+  questions: {
+    investQuestion,
+    whatMotivates,
+    frontDeskNotes,
+    indexChampion,
+    techNotes,
+    deviceChampion,
+    examLaneNotes,
+    currentFlow,
+  },
+  calculations: { whoToIndex, whoToRun, whoToTalkTo },
 }) => {
   return (
     <div className="resultsPage">
@@ -34,6 +35,7 @@ const resultPage = ({
           <h5>Daily Average:</h5>
           <p>Daily Total of Lifestyle Index's: {whoToIndex}</p>
           <p>Daily Device Runs: {whoToRun}</p>
+          <p>Daily Patient Conversations: {whoToTalkTo}</p>
         </div>
         <div className="border border-dark p-3 mb-5">
           <h5>Notes:</h5>
@@ -43,18 +45,7 @@ const resultPage = ({
           <p>OD to Optical Flow: {currentFlow}</p>
         </div>
       </div>
-      <footer className="row justify-content-between fixed-bottom">
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/doctorPage">
-            BACK
-          </Link>
-        </div>
-        <div className="col-xs-1 btn btn-secondary btn-sm m-5">
-          <Link className="text-decoration-none text-light" to="/profitPage">
-            NEXT
-          </Link>
-        </div>
-      </footer>
+      <Footer backUrl="/doctorPage" nextUrl="/profitPage" />
     </div>
   );
 };
