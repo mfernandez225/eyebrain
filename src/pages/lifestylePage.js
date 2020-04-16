@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../components/footer";
-
-const INDEX_ALL_PATIENTS = 1;
-const NINETY = 0.9;
-const SEVENTY_FIVE = 0.75;
-const PRESET_INDEX_VALUES = [INDEX_ALL_PATIENTS, NINETY, SEVENTY_FIVE];
+import "./lifestylePage.scss";
+import Choices from "../components/choices";
 
 const LifestylePage = ({
   questions: { frontDeskNotes, indexChampion, lifestyleIndex },
@@ -12,79 +9,30 @@ const LifestylePage = ({
   handleQuestionChange,
   setQuestionValue,
 }) => {
-  const lifestyleIndexIsPresent = !!lifestyleIndex;
-  const lifestyleIndexIsPresetValue = PRESET_INDEX_VALUES.includes(
-    lifestyleIndex
-  );
-  const [showCustomIndex, setShowCustomIndex] = useState(
-    lifestyleIndexIsPresent && !lifestyleIndexIsPresetValue
-  );
   // const surveyComplete = frontDeskNotes && indexChampion;
   return (
     <div className="lifestylePage">
       <div className="row col-sm justify-content-center">
-        <h5>FRONT DESK</h5>
+        <h1 className="text-success font-weight-bold m-2">FRONT DESK</h1>
       </div>
-      <div className="container border border-dark p-5">
+      <div className="container bg-light border border-dark p-5">
         <div className="row col-sm justify-content-center m-1">
-          <h5>Percentage of patients you index</h5>
+          <h3>Percentage of patients you index</h3>
         </div>
-        <div className="row col-sm btn-group m-1">
-          <button
-            className={`btn btn-${
-              !showCustomIndex && lifestyleIndex === INDEX_ALL_PATIENTS
-                ? "success"
-                : "secondary"
-            } m-1`}
-            onClick={() =>
-              setQuestionValue("lifestyleIndex", INDEX_ALL_PATIENTS)
-            }
-          >
-            100%
-          </button>
-          <button
-            className={`btn btn-${
-              !showCustomIndex && lifestyleIndex === NINETY
-                ? "success"
-                : "secondary"
-            } m-1`}
-            onClick={() => setQuestionValue("lifestyleIndex", NINETY)}
-          >
-            90%
-          </button>
-          <button
-            className={`btn btn-${
-              !showCustomIndex && lifestyleIndex === SEVENTY_FIVE
-                ? "success"
-                : "secondary"
-            } m-1`}
-            onClick={() => setQuestionValue("lifestyleIndex", SEVENTY_FIVE)}
-          >
-            75%
-          </button>{" "}
-          <button
-            className={`btn btn-${
-              showCustomIndex ? "success" : "secondary"
-            } m-1`}
-            onClick={() => setShowCustomIndex((curr) => !curr)}
-          >
-            Custom
-          </button>
-          {showCustomIndex && (
-            <input
-              className="form-control"
-              type="number"
-              placeholder="Custom"
-              name="custom"
-              value={Math.round(lifestyleIndex * 100)}
-              onChange={(e) =>
-                setQuestionValue("lifestyleIndex", e.currentTarget.value / 100)
-              }
-            />
-          )}
-        </div>
+        <Choices
+          choices={[
+            { label: "100%", value: 1 },
+            { label: "90%", value: 0.9 },
+            { label: "75%", value: 0.75 },
+          ]}
+          setChoice={(value) => setQuestionValue("lifestyleIndex", value)}
+          value={lifestyleIndex}
+        />
+
         <div className="row col-sm justify-content-center">
-          <h5>Total Indexes: {whoToIndex || ""}</h5>{" "}
+          <h3 className="border border-success text-success font-weight-bolder m-2 p-5">
+            Daily Index Total: {whoToIndex || ""}
+          </h3>{" "}
         </div>
         <div className="row col-sm">
           <h5>Who will lead handing these indexes out?</h5>

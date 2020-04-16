@@ -12,25 +12,29 @@ function App() {
   const [questions, setQuestions] = useState({
     // HOME PAGE
     practiceName: "",
+    visionAffiliations: "",
+    managedCare: "",
     investQuestion: "",
     odDays: "5",
     dailyComps: "10",
     numberOfOd: "",
+    officeManager: "",
     frontDeskStaff: "",
     numberOfTechs: "",
+    opticians: "",
     whatMotivates: "",
     // LIFESTYLE PAGE
     frontDeskNotes: "",
     indexChampion: "",
-    lifestyleIndex: "1",
+    lifestyleIndex: "",
     // DEVICE PAGE
     deviceChampion: "",
     techNotes: "",
-    deviceRuns: ".5",
+    deviceRuns: "",
     // DOCTOR PAGE
     timeAllotted: "",
     currentFlow: "",
-    impactTalk: "1",
+    impactTalk: "",
     examLaneNotes: "",
     // PROFIT PAGE
     lensConversion: "",
@@ -50,41 +54,45 @@ function App() {
 
   // All calculations.
   useEffect(() => {
-    if (dailyComps && lifestyleIndex)
-      setCalculations((prev) => ({
-        ...prev,
-        whoToIndex: Math.round(dailyComps * lifestyleIndex),
-      }));
+    setCalculations((prev) => ({
+      ...prev,
+      whoToIndex:
+        (dailyComps &&
+          lifestyleIndex &&
+          Math.round(dailyComps * lifestyleIndex)) ||
+        0,
+    }));
 
-    if (whoToIndex && deviceRuns)
-      setCalculations((prev) => ({
-        ...prev,
-        whoToRun: Math.round(whoToIndex * deviceRuns),
-      }));
+    setCalculations((prev) => ({
+      ...prev,
+      whoToRun:
+        (whoToIndex && deviceRuns && Math.round(whoToIndex * deviceRuns)) || 0,
+    }));
 
-    if (whoToRun && impactTalk)
-      setCalculations((prev) => ({
-        ...prev,
-        whoToTalkTo: Math.round(whoToRun * impactTalk),
-      }));
+    setCalculations((prev) => ({
+      ...prev,
+      whoToTalkTo:
+        (whoToRun && impactTalk && Math.round(whoToRun * impactTalk)) || 0,
+    }));
 
-    if (whoToTalkTo && lensConversion && odDays) {
-      const newWeeklyConversions = Math.round(
-        whoToTalkTo * lensConversion * odDays
-      );
+    const newWeeklyConversions =
+      (whoToTalkTo &&
+        lensConversion &&
+        odDays &&
+        Math.round(whoToTalkTo * lensConversion * odDays)) ||
+      0;
 
-      const newYearlyConversions = Math.round(newWeeklyConversions * 50);
-      const newMonthlyConversions = Math.round(newYearlyConversions / 12);
-      setCalculations((prev) => ({
-        ...prev,
-        weeklyConversions: newWeeklyConversions,
-        monthlyConversions: newMonthlyConversions,
-        yearlyConversions: newYearlyConversions,
-        weeklyRoi: weeklyConversions * 400,
-        monthlyRoi: newMonthlyConversions * 400,
-        yearlyRoi: newYearlyConversions * 400,
-      }));
-    }
+    const newYearlyConversions = Math.round(newWeeklyConversions * 50);
+    const newMonthlyConversions = Math.round(newYearlyConversions / 12);
+    setCalculations((prev) => ({
+      ...prev,
+      weeklyConversions: newWeeklyConversions,
+      monthlyConversions: newMonthlyConversions,
+      yearlyConversions: newYearlyConversions,
+      weeklyRoi: weeklyConversions * 400,
+      monthlyRoi: newMonthlyConversions * 400,
+      yearlyRoi: newYearlyConversions * 400,
+    }));
   }, [
     dailyComps,
     lifestyleIndex,

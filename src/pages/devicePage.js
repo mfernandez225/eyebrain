@@ -1,14 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../components/footer";
-
-const DEVICE_ALL_PATIENTS = 1;
-const SYMPTOMATIC_PATIENTS = 0.5;
-const HIGHLY_SYMPTOMATIC = 0.25;
-const DEVICE_PRESET_INDEX_VALUES = [
-  DEVICE_ALL_PATIENTS,
-  SYMPTOMATIC_PATIENTS,
-  HIGHLY_SYMPTOMATIC,
-];
+import Choices from "../components/choices";
+import "./devicePage.scss";
 
 const DevicePage = ({
   questions: { deviceChampion, techNotes, deviceRuns },
@@ -16,77 +9,29 @@ const DevicePage = ({
   handleQuestionChange,
   setQuestionValue,
 }) => {
-  const deviceRunsIsPresent = !!deviceRuns;
-  const deviceRunsIsPresetValue = DEVICE_PRESET_INDEX_VALUES.includes(
-    deviceRuns
-  );
-  const [showDeviceRuns, setShowDeviceRuns] = useState(
-    deviceRunsIsPresent && !deviceRunsIsPresetValue
-  );
   // const surveyComplete = deviceChampion && techNotes;
   return (
     <div className="devicePage">
       <div className="row col-sm justify-content-center">
-        <h5>TECHNICIANS</h5>
+        <h1 className="text-success font-weight-bold m-2">TECHNICIANS</h1>
       </div>
-      <div className="container border border-dark p-5">
+      <div className="container border border-dark bg-light p-5">
         <div className="row col-sm justify-content-center m-1">
-          <h5>What patients do you run on the device?</h5>
+          <h3>What patients do you run on the device?</h3>
         </div>
-        <div className="row col-sm btn-group m-1">
-          <button
-            className={`btn btn-${
-              !showDeviceRuns && deviceRuns === DEVICE_ALL_PATIENTS
-                ? "success"
-                : "secondary"
-            } m-1`}
-            onClick={() => setQuestionValue("deviceRuns", DEVICE_ALL_PATIENTS)}
-          >
-            All Patients
-          </button>
-          <button
-            className={`btn btn-${
-              !showDeviceRuns && deviceRuns === SYMPTOMATIC_PATIENTS
-                ? "success"
-                : "secondary"
-            } m-1`}
-            onClick={() => setQuestionValue("deviceRuns", SYMPTOMATIC_PATIENTS)}
-          >
-            Symptomatic Patients
-          </button>
-          <button
-            className={`btn btn-${
-              !showDeviceRuns && deviceRuns === HIGHLY_SYMPTOMATIC
-                ? "success"
-                : "secondary"
-            } m-1`}
-            onClick={() => setQuestionValue("deviceRuns", HIGHLY_SYMPTOMATIC)}
-          >
-            Highly Symptomatic
-          </button>
-          <button
-            className={`btn btn-${
-              showDeviceRuns ? "success" : "secondary"
-            } m-1`}
-            onClick={() => setShowDeviceRuns((curr) => !curr)}
-          >
-            Custom
-          </button>
-          {showDeviceRuns && (
-            <input
-              className="form-control"
-              type="number"
-              placeholder="Custom"
-              name="custom"
-              value={Math.round(deviceRuns * 100)}
-              onChange={(e) =>
-                setQuestionValue("deviceRuns", e.target.value / 100)
-              }
-            />
-          )}
-        </div>
+        <Choices
+          choices={[
+            { label: "All Patients", value: 1 },
+            { label: "Symptomatic Patients", value: 0.5 },
+            { label: "Highly Symptomatic", value: 0.25 },
+          ]}
+          setChoice={(value) => setQuestionValue("deviceRuns", value)}
+          value={deviceRuns}
+        />
         <div className="row col-sm justify-content-center">
-          <h5>Total Device Runs : {whoToRun || ""}</h5>{" "}
+          <h3 className="border border-success text-success font-weight-bolder m-2 p-5">
+            Daily Device Runs : {whoToRun || ""}
+          </h3>{" "}
         </div>
         <div className="row col-sm">
           <h5>Who will lead running patients? </h5>

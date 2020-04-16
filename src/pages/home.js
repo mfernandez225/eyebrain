@@ -1,34 +1,46 @@
 import React from "react";
 import Footer from "../components/footer";
+import "./home.scss";
+import logo from "./images/neurolens_with_tagline.jpg";
 
 const Home = ({
   questions: {
     practiceName,
     investQuestion,
+    visionAffiliations,
+    managedCare,
     odDays,
     dailyComps,
     numberOfOd,
+    officeManager,
     frontDeskStaff,
     numberOfTechs,
+    opticians,
     whatMotivates,
   },
   handleQuestionChange,
 }) => {
-  // const canContinue =
-  //   dailyComps &&
-  //   practiceName &&
-  //   whatMotivates &&
-  //   odDays &&
-  //   investQuestion &&
-  //   numberOfOd &&
-  //   frontDeskStaff &&
-  //   numberOfTechs;
+  const canContinue =
+    true ||
+    (dailyComps &&
+      practiceName &&
+      whatMotivates &&
+      odDays &&
+      investQuestion &&
+      numberOfOd &&
+      frontDeskStaff &&
+      numberOfTechs);
   return (
     <div className="home">
-      <div className="row col-sm justify-content-center">
-        <h5>CUSTOMIZED FLOW COMMITMENT</h5>
-      </div>
-      <div className="container border border-dark p-3">
+      <div className="container border border-dark bg-white rounded mt-5 p-5">
+        <div className="row col-sm justify-content-center">
+          <img className="" src={logo} alt="logo" width="300" height="100" />
+        </div>
+        <div className="row col-sm justify-content-center">
+          <h3 className="text-success font-weight-bold">
+            CUSTOMIZED FLOW COMMITMENT
+          </h3>
+        </div>
         <div className="row col-sm">
           <h5>Practice Name: </h5>
         </div>
@@ -41,6 +53,32 @@ const Home = ({
             value={practiceName}
             onChange={handleQuestionChange}
           />
+        </div>
+        <div className="row col-sm">
+          <h5>Vision Affiliations (i.e. Vision Source, Buying Group):</h5>
+        </div>
+        <div className="row col-sm">
+          <input
+            className="form-control"
+            type="text"
+            placeholder="What groups do you participate in?"
+            name="visionAffiliations"
+            value={visionAffiliations}
+            onChange={handleQuestionChange}
+          />
+        </div>
+        <div className="row col-sm">
+          <h5>Managed Care (% breakdown of insurances)</h5>
+        </div>
+        <div className="row col-sm">
+          <input
+            className="form-control"
+            type="text"
+            placeholder="How is your managed care in your practice?"
+            name="managedCare"
+            value={managedCare}
+            onChange={handleQuestionChange}
+          ></input>
         </div>
         <div className="row col-sm">
           <h5>Why did you invest in this technology for your practice? </h5>
@@ -82,17 +120,30 @@ const Home = ({
           />
         </div>
         <div className="row col-sm">
-          <h5>Number of OD's : </h5>
+          <h5>Number & Names of OD's : </h5>
         </div>
         <div className="row col-sm">
           <input
             className="form-control"
-            type="number"
+            type="text"
             placeholder="# of OD's"
             name="numberOfOd"
             value={numberOfOd}
             onChange={handleQuestionChange}
           />
+        </div>
+        <div className="row col-sm">
+          <h5>Office Manager:</h5>
+        </div>
+        <div className="row col-sm">
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Who is your Office Manager?"
+            name="officeManager"
+            value={officeManager}
+            onChange={handleQuestionChange}
+          ></input>
         </div>
         <div className="row col-sm">
           <h5>Front Desk Staff : </h5>
@@ -121,6 +172,19 @@ const Home = ({
           />
         </div>
         <div className="row col-sm">
+          <h5>Opticans:</h5>
+        </div>
+        <div className="row col-sm">
+          <input
+            className="form-control"
+            type="text"
+            placeholder="# of opticians"
+            name="opticians"
+            value={opticians}
+            onChange={handleQuestionChange}
+          ></input>
+        </div>
+        <div className="row col-sm">
           <h5>What motivates you and your staff? </h5>
         </div>
         <div className="row col-sm">
@@ -134,7 +198,7 @@ const Home = ({
           />
         </div>
       </div>
-      <Footer nextUrl="/lifestylePage" />
+      <Footer nextUrl="/lifestylePage" nextDisabled={!canContinue} />
     </div>
   );
 };

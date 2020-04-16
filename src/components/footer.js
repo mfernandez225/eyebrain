@@ -15,7 +15,7 @@ const Footer = ({
     <footer className="row justify-content-between">
       {(backUrl && (
         <div
-          className={cx(`col-xs-1 btn btn-secondary btn-sm m-5`, {
+          className={cx(`col-xs-1 btn btn-success btn-lg m-5 btn-footer`, {
             disabled: backDisabled,
           })}
         >
@@ -26,7 +26,7 @@ const Footer = ({
       )) || <span></span>}
       {nextUrl && (
         <div
-          className={cx(`col-xs-1 btn btn-secondary btn-sm m-5`, {
+          className={cx(`col-xs-1 btn btn-success btn-lg m-5 btn-footer`, {
             disabled: nextDisabled,
           })}
         >
