@@ -33,24 +33,24 @@ const resultPage = ({
                 Projected Daily Totals
               </h3>
               <div className="text-center border border-success rounded p-2">
-                <p className="text-dark">
+                <div className="text-dark">
                   Lifestyle Index's:{" "}
                   <h5 className="font-weight-bolder text-success">
                     {whoToIndex}
                   </h5>
-                </p>
-                <p className="text-dark">
+                </div>
+                <div className="text-dark">
                   Device Runs:{" "}
                   <h5 className="font-weight-bolder text-success">
                     {whoToRun}
                   </h5>
-                </p>
-                <p className="text-dark">
+                </div>
+                <div className="text-dark">
                   Patient Conversations:{" "}
                   <h5 className="font-weight-bolder text-success">
                     {whoToTalkTo}
                   </h5>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -61,24 +61,24 @@ const resultPage = ({
                 Neurolens Champions
               </h3>
               <div className="text-center border border-success rounded p-2">
-                <p className="text-dark">
+                <div className="text-dark">
                   Office Manager:{" "}
                   <h5 className="font-weight-bolder text-success">
                     {officeManager}
                   </h5>
-                </p>
-                <p className="text-dark">
+                </div>
+                <div className="text-dark">
                   Front Desk:{" "}
                   <h5 className="font-weight-bolder text-success">
                     {indexChampion}
                   </h5>
-                </p>
-                <p className="text-dark">
+                </div>
+                <div className="text-dark">
                   Technician:{" "}
                   <h5 className="font-weight-bolder text-success">
                     {deviceChampion}
                   </h5>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -89,18 +89,18 @@ const resultPage = ({
             <h3 className="mb-3 text-center font-weight-bold">
               Practice Insights
             </h3>
-            <p className="text-secondary">
+            <div className="text-secondary">
               Why you invested in Neurolenses:{" "}
-              <p className="text-dark font-weight-bolder mt-2">
+              <div className="text-dark font-weight-bolder mt-2">
                 {investQuestion}
-              </p>
-            </p>
-            <p className="text-secondary">
+              </div>
+            </div>
+            <div className="text-secondary">
               What motivates your practice:{" "}
-              <p className="text-dark font-weight-bolder mt-2">
+              <div className="text-dark font-weight-bolder mt-2">
                 {whatMotivates}
-              </p>
-            </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -108,26 +108,30 @@ const resultPage = ({
           {" "}
           <div className="col-sm-12 bg-white text-dark font-weight-bold border border-dark rounded p-3 mb-5">
             <h3 className="mb-3 text-center font-weight-bold">Notes</h3>
-            <p className="text-secondary">
+            <div className="text-secondary">
               Front Desk Notes:{" "}
-              <p className="text-dark font-weight-bolder mt-2">
+              <div className="text-dark font-weight-bolder mt-2">
                 {frontDeskNotes}
-              </p>
-            </p>
-            <p className="text-secondary">
+              </div>
+            </div>
+            <div className="text-secondary">
               Technician Notes:{" "}
-              <p className="text-dark font-weight-bolder mt-2">{techNotes}</p>
-            </p>
-            <p className="text-secondary">
+              <div className="text-dark font-weight-bolder mt-2">
+                {techNotes}
+              </div>
+            </div>
+            <div className="text-secondary">
               Exam Lane Notes:{" "}
-              <p className="text-dark font-weight-bolder mt-2">
+              <div className="text-dark font-weight-bolder mt-2">
                 {examLaneNotes}
-              </p>
-            </p>
-            <p className="text-secondary">
+              </div>
+            </div>
+            <div className="text-secondary">
               OD to Optical Flow:{" "}
-              <p className="text-dark font-weight-bolder mt-2">{currentFlow}</p>
-            </p>
+              <div className="text-dark font-weight-bolder mt-2">
+                {currentFlow}
+              </div>
+            </div>
           </div>
         </div>
       </div>

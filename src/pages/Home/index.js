@@ -41,10 +41,10 @@ const Home = ({
             CUSTOMIZED FLOW COMMITMENT
           </h3>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Practice Name: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -54,10 +54,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Vision Affiliations (i.e. Vision Source, Buying Group)</h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -67,10 +67,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Managed Care (% breakdown of insurances)</h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -80,10 +80,10 @@ const Home = ({
             onChange={handleQuestionChange}
           ></input>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Why did you invest in this technology for your practice? </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -93,10 +93,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>How many days a week are you seeing patients?</h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="number"
@@ -106,10 +106,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Average Daily Comps: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="number"
@@ -119,10 +119,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Number & Names of OD's: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -132,10 +132,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Office Manager:</h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -145,10 +145,10 @@ const Home = ({
             onChange={handleQuestionChange}
           ></input>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Front Desk Staff: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -158,10 +158,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Number of Technicians: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -171,10 +171,10 @@ const Home = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Opticans:</h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -184,10 +184,10 @@ const Home = ({
             onChange={handleQuestionChange}
           ></input>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>What motivates you and your staff? </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"

@@ -34,15 +34,15 @@ const DoctorPage = ({
           setChoice={(value) => setQuestionValue("impactTalk", value)}
           value={impactTalk}
         />
-        <div className="row col-sm justify-content-center">
+        <div className="row col-xs justify-content-center">
           <h3 className="border border-success text-success text-center font-weight-bolder m-2 p-5">
             Daily Conversations: {whoToTalkTo || ""}
           </h3>{" "}
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Time Alloted for Eye Exam: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="number"
@@ -52,10 +52,10 @@ const DoctorPage = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Current Flow to Optical: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -65,10 +65,10 @@ const DoctorPage = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Notes: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"

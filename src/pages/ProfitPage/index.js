@@ -39,42 +39,42 @@ const ProfitPage = ({
       </div>
       <div className="container">
         <div className="row mb-3">
-          <div className="col-sm-4 font-weight-bold">
+          <div className="col-sm-4 mb-3 font-weight-bold">
             <div className="card text-success bg-white">
               <div className="card-body border border-dark">
                 <h3 className="card-title text-dark text-center font-weight-bold">
                   WEEKLY
                 </h3>
-                <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
+                <div className="card-text font-weight-bolder text-center border border-success rounded mb-3 p-3">
                   Patients Helped: <h1>{weeklyConversions}</h1>
-                </p>
-                <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
+                </div>
+                <div className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   Weekly Revenue:
                   <h1>
                     <NumberFormat value={weeklyRoi} {...currencyProps} />
                   </h1>
-                </p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="col-sm-4 font-weight-bold">
+          <div className="col-sm-4 mb-3 font-weight-bold">
             <div className="card text-success bg-white">
               <div className="card-body border border-dark">
                 <h3 className="card-title text-dark text-center font-weight-bold">
                   MONTHLY
                 </h3>
-                <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
+                <div className="card-text font-weight-bolder text-center border border-success mb-3 rounded p-3">
                   {" "}
                   Patients Helped: <h1>{monthlyConversions}</h1>
-                </p>
-                <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
+                </div>
+                <div className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
                   Monthly Revenue:
                   <h1>
                     {" "}
                     <NumberFormat value={monthlyRoi} {...currencyProps} />
                   </h1>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -84,18 +84,18 @@ const ProfitPage = ({
                 <h3 className="card-title text-dark text-center font-weight-bold">
                   YEARLY
                 </h3>
-                <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
+                <div className="card-text font-weight-bolder text-center border border-success mb-3 rounded p-3">
                   {" "}
                   Patients Helped per Year: <h1>{yearlyConversions}</h1>
-                </p>
-                <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
+                </div>
+                <div className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
                   Yearly Revenue:
                   <h1>
                     {" "}
                     <NumberFormat value={yearlyRoi} {...currencyProps} />
                   </h1>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ const ProfitPage = ({
               value={deviceRuns}
             />
           </div>
-          <div className="border border-dark bg-light p-3 rounded mb-5">
+          <div className="border border-dark bg-light p-3 rounded mb-3">
             <div className="row col-sm justify-content-center m-1">
               <h3 className="text-success font-weight-bold">Exam Lane</h3>
             </div>

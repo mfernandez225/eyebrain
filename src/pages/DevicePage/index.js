@@ -32,15 +32,15 @@ const DevicePage = ({
           setChoice={(value) => setQuestionValue("deviceRuns", value)}
           value={deviceRuns}
         />
-        <div className="row col-sm justify-content-center">
+        <div className="row col-xs justify-content-center">
           <h3 className="border border-success text-success text-center font-weight-bolder m-2 p-5">
             Daily Device Runs: {whoToRun || ""}
           </h3>{" "}
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Who will lead running patients? </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
@@ -50,10 +50,10 @@ const DevicePage = ({
             onChange={handleQuestionChange}
           />
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <h5>Notes: </h5>
         </div>
-        <div className="row col-sm">
+        <div className="row col-xs">
           <input
             className="form-control"
             type="text"
