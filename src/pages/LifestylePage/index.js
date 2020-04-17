@@ -18,9 +18,11 @@ const LifestylePage = ({
           <img id="logo" className="mb-2" src={logo} alt="logo" />
         </div>
         <div className="row col-xs justify-content-center">
-          <h3 className="text-success font-weight-bold m-2">FRONT DESK</h3>
+          <h3 className="text-success text-center font-weight-bold m-2">
+            FRONT DESK
+          </h3>
         </div>
-        <div className="row col-xs justify-content-center m-1">
+        <div className="row col-xs text-center justify-content-center m-1">
           <h5>Percentage of patients you index</h5>
         </div>
         <Choices
@@ -34,7 +36,7 @@ const LifestylePage = ({
         />
 
         <div className="row col-xs justify-content-center">
-          <h3 className="border border-success text-success font-weight-bolder m-2 p-5">
+          <h3 className="border border-success text-success text-center font-weight-bolder m-2 p-5">
             Daily Index Total: {whoToIndex || ""}
           </h3>{" "}
         </div>

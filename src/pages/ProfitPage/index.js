@@ -33,7 +33,7 @@ const ProfitPage = ({
       </div>
       <div className="row col-xs justify-content-center">
         {" "}
-        <h3 className="text-success font-weight-bold mb-5">
+        <h3 className="text-success text-center font-weight-bold mb-5">
           IMPACT ON YOUR PRACTICE
         </h3>
       </div>
@@ -103,7 +103,7 @@ const ProfitPage = ({
         <div>
           <div className="border border-dark bg-light rounded p-5 mb-3">
             <div className="row col-sm justify-content-center m-1">
-              <h3 className="text-success font-weight-bold">
+              <h3 className="text-success text-center font-weight-bold">
                 Neurolens Conversion
               </h3>
             </div>
@@ -171,9 +171,9 @@ const ProfitPage = ({
         </div>
       </div>
       <Footer backUrl="/resultPage" nextText="HOME" nextUrl="/">
-        <div className="col-xs-1 btn btn-dark btn-lg m-5 btn-footer">
+        <div className="col-xs-1 btn btn-secondary btn-lg m-5 btn-footer">
           <Link className="text-decoration-none text-light" to="/Result.pdf">
-            Generate PDF
+            PDF
           </Link>
         </div>
       </Footer>

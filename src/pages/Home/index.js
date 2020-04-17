@@ -37,7 +37,7 @@ const Home = ({
           <img id="logo" className="mb-3" src={logo} alt="logo" />
         </div>
         <div className="row col-xs justify-content-center">
-          <h3 className="text-success font-weight-bold">
+          <h3 className="text-success text-center font-weight-bold">
             CUSTOMIZED FLOW COMMITMENT
           </h3>
         </div>
@@ -55,7 +55,7 @@ const Home = ({
           />
         </div>
         <div className="row col-sm">
-          <h5>Vision Affiliations (i.e. Vision Source, Buying Group):</h5>
+          <h5>Vision Affiliations (i.e. Vision Source, Buying Group)</h5>
         </div>
         <div className="row col-sm">
           <input
@@ -107,7 +107,7 @@ const Home = ({
           />
         </div>
         <div className="row col-sm">
-          <h5>Average Daily Comps : </h5>
+          <h5>Average Daily Comps: </h5>
         </div>
         <div className="row col-sm">
           <input
@@ -120,7 +120,7 @@ const Home = ({
           />
         </div>
         <div className="row col-sm">
-          <h5>Number & Names of OD's : </h5>
+          <h5>Number & Names of OD's: </h5>
         </div>
         <div className="row col-sm">
           <input
@@ -146,7 +146,7 @@ const Home = ({
           ></input>
         </div>
         <div className="row col-sm">
-          <h5>Front Desk Staff : </h5>
+          <h5>Front Desk Staff: </h5>
         </div>
         <div className="row col-sm">
           <input
@@ -159,7 +159,7 @@ const Home = ({
           />
         </div>
         <div className="row col-sm">
-          <h5>Number of Technicians : </h5>
+          <h5>Number of Technicians: </h5>
         </div>
         <div className="row col-sm">
           <input
