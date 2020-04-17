@@ -19,7 +19,7 @@ const resultPage = ({
   return (
     <div className="resultsPage">
       <div className="row col-sm justify-content-center">
-        <img className="mb-2 mt-5" src={logo} alt="logo" />
+        <img id="logo" className="mb-2 mt-5" src={logo} alt="logo" />
       </div>
       <div className="row col-sm justify-content-center">
         {" "}

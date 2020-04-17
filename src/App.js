@@ -5,6 +5,7 @@ import DevicePage from "./pages/DevicePage";
 import DoctorPage from "./pages/DoctorPage";
 import ResultPage from "./pages/ResultPage";
 import ProfitPage from "./pages/ProfitPage";
+import ScrollToTop from "./components/scrollToTop";
 import ResultPDF from "./pages/pdf";
 import { PDFViewer } from "@react-pdf/renderer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -127,59 +128,61 @@ function App() {
   return (
     <div className="App container-fluid">
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home
-              questions={questions}
-              handleQuestionChange={handleQuestionChange}
-            />
-          </Route>
-          <Route exact path="/lifestylePage">
-            <LifestylePage
-              questions={questions}
-              handleQuestionChange={handleQuestionChange}
-              setQuestionValue={setQuestionValue}
-              calculations={calculations}
-            />
-          </Route>
-          <Route exact path="/devicePage">
-            <DevicePage
-              questions={questions}
-              handleQuestionChange={handleQuestionChange}
-              setQuestionValue={setQuestionValue}
-              calculations={calculations}
-            />
-          </Route>
-          <Route exact path="/doctorPage">
-            <DoctorPage
-              questions={questions}
-              handleQuestionChange={handleQuestionChange}
-              setQuestionValue={setQuestionValue}
-              calculations={calculations}
-            />
-          </Route>
-          <Route exact path="/resultPage">
-            <ResultPage questions={questions} calculations={calculations} />
-          </Route>
-          <Route exact path="/profitPage">
-            <ProfitPage
-              questions={questions}
-              handleQuestionChange={handleQuestionChange}
-              setQuestionValue={setQuestionValue}
-              calculations={calculations}
-            />
-          </Route>
-          <Route exact path="/Result.pdf">
-            <PDFViewer
-              style={{
-                width: "100%",
-                height: "100vh",
-              }}
-            >
-              <ResultPDF questions={questions} calculations={calculations} />
-            </PDFViewer>
-          </Route>
-        </Switch>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/">
+              <Home
+                questions={questions}
+                handleQuestionChange={handleQuestionChange}
+              />
+            </Route>
+            <Route exact path="/lifestylePage">
+              <LifestylePage
+                questions={questions}
+                handleQuestionChange={handleQuestionChange}
+                setQuestionValue={setQuestionValue}
+                calculations={calculations}
+              />
+            </Route>
+            <Route exact path="/devicePage">
+              <DevicePage
+                questions={questions}
+                handleQuestionChange={handleQuestionChange}
+                setQuestionValue={setQuestionValue}
+                calculations={calculations}
+              />
+            </Route>
+            <Route exact path="/doctorPage">
+              <DoctorPage
+                questions={questions}
+                handleQuestionChange={handleQuestionChange}
+                setQuestionValue={setQuestionValue}
+                calculations={calculations}
+              />
+            </Route>
+            <Route exact path="/resultPage">
+              <ResultPage questions={questions} calculations={calculations} />
+            </Route>
+            <Route exact path="/profitPage">
+              <ProfitPage
+                questions={questions}
+                handleQuestionChange={handleQuestionChange}
+                setQuestionValue={setQuestionValue}
+                calculations={calculations}
+              />
+            </Route>
+            <Route exact path="/Result.pdf">
+              <PDFViewer
+                style={{
+                  width: "100%",
+                  height: "100vh",
+                }}
+              >
+                <ResultPDF questions={questions} calculations={calculations} />
+              </PDFViewer>
+            </Route>
+          </Switch>
+        </ScrollToTop>
       </Router>
     </div>
   );

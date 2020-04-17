@@ -15,7 +15,7 @@ const DevicePage = ({
     <div className="devicePage">
       <div className="container border border-dark bg-light mt-5 p-5">
         <div className="row col-sm justify-content-center">
-          <img className="mb-2" src={logo} alt="logo" />
+          <img id="logo" className="mb-2" src={logo} alt="logo" />
         </div>
         <div className="row col-sm justify-content-center">
           <h3 className="text-success font-weight-bold m-2">TECHNICIANS</h3>
