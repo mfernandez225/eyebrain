@@ -33,10 +33,10 @@ const Home = ({
   return (
     <div className="home">
       <div className="container border border-dark bg-white rounded mt-5 p-5">
-        <div className="row col-sm justify-content-center">
-          <img id="logo" className="mb-2" src={logo} alt="logo" />
+        <div className="row col-xs justify-content-center">
+          <img id="logo" className="mb-3" src={logo} alt="logo" />
         </div>
-        <div className="row col-sm justify-content-center">
+        <div className="row col-xs justify-content-center">
           <h3 className="text-success font-weight-bold">
             CUSTOMIZED FLOW COMMITMENT
           </h3>

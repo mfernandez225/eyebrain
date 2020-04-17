@@ -14,13 +14,13 @@ const DevicePage = ({
   return (
     <div className="devicePage">
       <div className="container border border-dark bg-light mt-5 p-5">
-        <div className="row col-sm justify-content-center">
-          <img id="logo" className="mb-2" src={logo} alt="logo" />
+        <div className="row col-xs justify-content-center">
+          <img id="logo" className="mb-3" src={logo} alt="logo" />
         </div>
-        <div className="row col-sm justify-content-center">
+        <div className="row col-xs justify-content-center">
           <h3 className="text-success font-weight-bold m-2">TECHNICIANS</h3>
         </div>
-        <div className="row col-sm justify-content-center m-1">
+        <div className="row col-xs justify-content-center m-1">
           <h5>What patients do you run on the device?</h5>
         </div>
         <Choices

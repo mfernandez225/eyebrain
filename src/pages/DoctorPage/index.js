@@ -13,13 +13,13 @@ const DoctorPage = ({
   return (
     <div className="doctorPage">
       <div className="container border border-dark bg-light mt-5 p-5">
-        <div className="row col-sm justify-content-center">
-          <img id="logo" className="mb-2" src={logo} alt="logo" />
+        <div className="row col-xs justify-content-center">
+          <img id="logo" className="mb-3" src={logo} alt="logo" />
         </div>
-        <div className="row col-sm justify-content-center">
+        <div className="row col-xs justify-content-center">
           <h3 className="text-success font-weight-bold m-2">EXAM LANE</h3>
         </div>
-        <div className="row col-sm justify-content-center m-1">
+        <div className="row col-xs justify-content-center m-1">
           <h5>
             What Percentage of Patients will you have Impactful Conversations
             with?

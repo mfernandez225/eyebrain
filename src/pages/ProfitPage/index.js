@@ -28,10 +28,10 @@ const ProfitPage = ({
 
   return (
     <div className="profitPage">
-      <div className="row col-sm justify-content-center">
-        <img id="logo" className="mb-2 mt-5" src={logo} alt="logo" />
+      <div className="row col-xs justify-content-center">
+        <img id="logo" className="mb-3 mt-5" src={logo} alt="logo" />
       </div>
-      <div className="row col-sm justify-content-center">
+      <div className="row col-xs justify-content-center">
         {" "}
         <h3 className="text-success font-weight-bold mb-5">
           IMPACT ON YOUR PRACTICE
