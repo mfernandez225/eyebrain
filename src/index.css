@@ -9,7 +9,7 @@ body {
 
 #background {
   background-image: url(./pages/images/AdobeStock_201112099.jpeg);
-  opacity: 0.2;
+  opacity: 0.5;
   position: fixed;
   z-index: 0;
   background-size: cover;

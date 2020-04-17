@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../components/footer";
+import logo from "./images/logo-banner.png";
 
 const resultPage = ({
   questions: {
@@ -17,8 +18,11 @@ const resultPage = ({
   return (
     <div className="resultsPage">
       <div className="row col-sm justify-content-center">
+        <img className="mb-2 mt-5" src={logo} alt="logo" />
+      </div>
+      <div className="row col-sm justify-content-center">
         {" "}
-        <h1 className="text-success font-weight-bold m-5">FLOW SUMMARY</h1>
+        <h3 className="text-success font-weight-bold mb-5">FLOW SUMMARY</h3>
       </div>
       <div className="container">
         <div className="row bg-white border border-dark rounded justify-content-between">

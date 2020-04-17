@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../components/footer";
 import Choices from "../components/choices";
+import logo from "./images/logo-banner.png";
 
 const DoctorPage = ({
   questions: { timeAllotted, currentFlow, impactTalk, examLaneNotes },
@@ -11,10 +12,13 @@ const DoctorPage = ({
   // const surveyComplete = timeAllotted && currentFlow && examLaneNotes;
   return (
     <div className="doctorPage">
-      <div className="row col-sm justify-content-center">
-        <h1 className="text-success font-weight-bold m-2">EXAM LANE</h1>
-      </div>
-      <div className="container border border-dark bg-light p-5">
+      <div className="container border border-dark bg-light mt-5 p-5">
+        <div className="row col-sm justify-content-center">
+          <img className="mb-2" src={logo} alt="logo" />
+        </div>
+        <div className="row col-sm justify-content-center">
+          <h3 className="text-success font-weight-bold m-2">EXAM LANE</h3>
+        </div>
         <div className="row col-sm justify-content-center m-1">
           <h5>
             What Percentage of Patients will you have Impactful Conversations

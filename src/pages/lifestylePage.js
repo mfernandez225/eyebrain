@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../components/footer";
 import "./lifestylePage.scss";
 import Choices from "../components/choices";
+import logo from "./images/logo-banner.png";
 
 const LifestylePage = ({
   questions: { frontDeskNotes, indexChampion, lifestyleIndex },
@@ -12,12 +13,15 @@ const LifestylePage = ({
   // const surveyComplete = frontDeskNotes && indexChampion;
   return (
     <div className="lifestylePage">
-      <div className="row col-sm justify-content-center">
-        <h1 className="text-success font-weight-bold m-2">FRONT DESK</h1>
-      </div>
-      <div className="container bg-light border border-dark p-5">
+      <div className="container bg-light border border-dark mt-5 p-5">
+        <div className="row col-sm justify-content-center">
+          <img className="mb-2" src={logo} alt="logo" />
+        </div>
+        <div className="row col-sm justify-content-center">
+          <h3 className="text-success font-weight-bold m-2">FRONT DESK</h3>
+        </div>
         <div className="row col-sm justify-content-center m-1">
-          <h3>Percentage of patients you index</h3>
+          <h5>Percentage of patients you index</h5>
         </div>
         <Choices
           choices={[

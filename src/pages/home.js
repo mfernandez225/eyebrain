@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/footer";
 import "./home.scss";
-import logo from "./images/neurolens_with_tagline.jpg";
+import logo from "./images/logo-banner.png";
 
 const Home = ({
   questions: {
@@ -34,7 +34,7 @@ const Home = ({
     <div className="home">
       <div className="container border border-dark bg-white rounded mt-5 p-5">
         <div className="row col-sm justify-content-center">
-          <img className="" src={logo} alt="logo" width="300" height="100" />
+          <img className="mb-2" src={logo} alt="logo" />
         </div>
         <div className="row col-sm justify-content-center">
           <h3 className="text-success font-weight-bold">

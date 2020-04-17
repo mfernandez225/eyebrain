@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../components/footer";
 import NumberFormat from "react-number-format";
 import Choices from "../components/choices";
+import logo from "./images/logo-banner.png";
 
 const ProfitPage = ({
   questions: { lensConversion, lifestyleIndex, deviceRuns, impactTalk },
@@ -27,17 +28,20 @@ const ProfitPage = ({
   return (
     <div className="profitPage">
       <div className="row col-sm justify-content-center">
+        <img className="mb-2 mt-5" src={logo} alt="logo" />
+      </div>
+      <div className="row col-sm justify-content-center">
         {" "}
-        <h1 className="text-success font-weight-bold m-5">
+        <h3 className="text-success font-weight-bold mb-5">
           NEUROLENS POTENTIAL
-        </h1>
+        </h3>
       </div>
       <div className="container">
         <div className="row mb-3">
           <div className="col-sm-4 font-weight-bold">
             <div className="card text-success bg-white">
               <div className="card-body border border-dark">
-                <h3 className="card-title text-center font-weight-bold">
+                <h3 className="card-title text-dark text-center font-weight-bold">
                   WEEKLY
                 </h3>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
@@ -53,7 +57,7 @@ const ProfitPage = ({
           <div className="col-sm-4 font-weight-bold">
             <div className="card text-success bg-white">
               <div className="card-body border border-dark">
-                <h3 className="card-title text-center font-weight-bold">
+                <h3 className="card-title text-dark text-center font-weight-bold">
                   MONTHLY
                 </h3>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
@@ -71,7 +75,7 @@ const ProfitPage = ({
           <div className="col-sm-4 font-weight-bold">
             <div className="card text-success bg-white">
               <div className="card-body border border-dark">
-                <h3 className="card-title text-center font-weight-bold">
+                <h3 className="card-title text-dark text-center font-weight-bold">
                   YEARLY
                 </h3>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">

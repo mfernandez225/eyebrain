@@ -1,6 +1,8 @@
 import React from "react";
 import Footer from "../components/footer";
 import Choices from "../components/choices";
+import logo from "./images/logo-banner.png";
+
 import "./devicePage.scss";
 
 const DevicePage = ({
@@ -12,12 +14,15 @@ const DevicePage = ({
   // const surveyComplete = deviceChampion && techNotes;
   return (
     <div className="devicePage">
-      <div className="row col-sm justify-content-center">
-        <h1 className="text-success font-weight-bold m-2">TECHNICIANS</h1>
-      </div>
-      <div className="container border border-dark bg-light p-5">
+      <div className="container border border-dark bg-light mt-5 p-5">
+        <div className="row col-sm justify-content-center">
+          <img className="mb-2" src={logo} alt="logo" />
+        </div>
+        <div className="row col-sm justify-content-center">
+          <h3 className="text-success font-weight-bold m-2">TECHNICIANS</h3>
+        </div>
         <div className="row col-sm justify-content-center m-1">
-          <h3>What patients do you run on the device?</h3>
+          <h5>What patients do you run on the device?</h5>
         </div>
         <Choices
           choices={[
