@@ -1,43 +1,48 @@
 import React, { useState, useEffect } from "react";
-import Home from "./pages/home";
-import LifestylePage from "./pages/lifestylePage";
-import DevicePage from "./pages/devicePage";
-import DoctorPage from "./pages/doctorPage";
-import ResultPage from "./pages/resultPage";
-import ProfitPage from "./pages/profitPage";
+import Home from "./pages/Home";
+import LifestylePage from "./pages/LifestylePage";
+import DevicePage from "./pages/DevicePage";
+import DoctorPage from "./pages/DoctorPage";
+import ResultPage from "./pages/ResultPage";
+import ProfitPage from "./pages/ProfitPage";
+import ResultPDF from "./pages/pdf";
+import { PDFViewer } from "@react-pdf/renderer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
   const [questions, setQuestions] = useState({
     // HOME PAGE
-    practiceName: "",
-    visionAffiliations: "",
-    managedCare: "",
-    investQuestion: "",
+    practiceName: "Marc's Practice",
+    visionAffiliations: "Vision Source and Eye Doc",
+    managedCare: "VSP, EM",
+    investQuestion: "Make that money!!!",
     odDays: "5",
     dailyComps: "10",
-    numberOfOd: "",
-    officeManager: "",
-    frontDeskStaff: "",
-    numberOfTechs: "",
-    opticians: "",
-    whatMotivates: "",
+    numberOfOd: "1",
+    officeManager: "Tina",
+    frontDeskStaff: "Robin, Trish, and Luke",
+    numberOfTechs: "4",
+    opticians: "Tracy and Kim",
+    whatMotivates: "Pizza Parties",
     // LIFESTYLE PAGE
-    frontDeskNotes: "",
-    indexChampion: "",
-    lifestyleIndex: "",
+    frontDeskNotes:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem quas, soluta debitis adipisci est fugit aperiam aspernatur numquam assumenda ad eos. Quidem ducimus sed asperiores, amet vitae error accusamus",
+    indexChampion: "Trish",
+    lifestyleIndex: 1,
     // DEVICE PAGE
-    deviceChampion: "",
-    techNotes: "",
-    deviceRuns: "",
+    deviceChampion: "Hank",
+    techNotes:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem quas, soluta debitis adipisci est fugit aperiam aspernatur numquam assumenda ad eos. Quidem ducimus sed asperiores, amet vitae error accusamus",
+    deviceRuns: 0.5,
     // DOCTOR PAGE
-    timeAllotted: "",
-    currentFlow: "",
-    impactTalk: "",
-    examLaneNotes: "",
+    timeAllotted: "15",
+    currentFlow: "Hands straight to optician with one RX",
+    impactTalk: 0.5,
+    examLaneNotes:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem quas, soluta debitis adipisci est fugit aperiam aspernatur numquam assumenda ad eos. Quidem ducimus sed asperiores, amet vitae error accusamus",
     // PROFIT PAGE
-    lensConversion: "",
+    lensConversion: 0.05,
   });
   const [calculations, setCalculations] = useState({});
 
@@ -166,6 +171,16 @@ function App() {
               setQuestionValue={setQuestionValue}
               calculations={calculations}
             />
+          </Route>
+          <Route exact path="/Result.pdf">
+            <PDFViewer
+              style={{
+                width: "100%",
+                height: "100vh",
+              }}
+            >
+              <ResultPDF questions={questions} calculations={calculations} />
+            </PDFViewer>
           </Route>
         </Switch>
       </Router>

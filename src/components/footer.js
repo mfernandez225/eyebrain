@@ -10,6 +10,7 @@ const Footer = ({
   nextText,
   nextUrl,
   nextDisabled,
+  children,
 }) => {
   return (
     <footer className="row justify-content-between">
@@ -24,6 +25,7 @@ const Footer = ({
           </Link>
         </div>
       )) || <span></span>}
+      {children}
       {nextUrl && (
         <div
           className={cx(`col-xs-1 btn btn-success btn-lg m-5 btn-footer`, {

@@ -1,8 +1,9 @@
 import React from "react";
-import Footer from "../components/footer";
+import Footer from "../../components/footer";
 import NumberFormat from "react-number-format";
-import Choices from "../components/choices";
-import logo from "./images/logo-banner.png";
+import Choices from "../../components/choices";
+import logo from "../images/logo_banner.png";
+import { Link } from "react-router-dom";
 
 const ProfitPage = ({
   questions: { lensConversion, lifestyleIndex, deviceRuns, impactTalk },
@@ -33,7 +34,7 @@ const ProfitPage = ({
       <div className="row col-sm justify-content-center">
         {" "}
         <h3 className="text-success font-weight-bold mb-5">
-          NEUROLENS POTENTIAL
+          IMPACT ON YOUR PRACTICE
         </h3>
       </div>
       <div className="container">
@@ -45,11 +46,13 @@ const ProfitPage = ({
                   WEEKLY
                 </h3>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
-                  Potential Patients Helped per Week: {weeklyConversions}
+                  Patients Helped: <h1>{weeklyConversions}</h1>
                 </p>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
-                  Weekly Revenue:{" "}
-                  <NumberFormat value={weeklyRoi} {...currencyProps} />
+                  Weekly Revenue:
+                  <h1>
+                    <NumberFormat value={weeklyRoi} {...currencyProps} />
+                  </h1>
                 </p>
               </div>
             </div>
@@ -62,12 +65,15 @@ const ProfitPage = ({
                 </h3>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
-                  Potential Patients Helped per Month: {monthlyConversions}
+                  Patients Helped: <h1>{monthlyConversions}</h1>
                 </p>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
-                  Monthly Revenue:{" "}
-                  <NumberFormat value={monthlyRoi} {...currencyProps} />
+                  Monthly Revenue:
+                  <h1>
+                    {" "}
+                    <NumberFormat value={monthlyRoi} {...currencyProps} />
+                  </h1>
                 </p>
               </div>
             </div>
@@ -80,12 +86,15 @@ const ProfitPage = ({
                 </h3>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
-                  Potential Patients Helped per Year: {yearlyConversions}
+                  Patients Helped per Year: <h1>{yearlyConversions}</h1>
                 </p>
                 <p className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
-                  Yearly Revenue:{" "}
-                  <NumberFormat value={yearlyRoi} {...currencyProps} />
+                  Yearly Revenue:
+                  <h1>
+                    {" "}
+                    <NumberFormat value={yearlyRoi} {...currencyProps} />
+                  </h1>
                 </p>
               </div>
             </div>
@@ -161,7 +170,13 @@ const ProfitPage = ({
           </div>
         </div>
       </div>
-      <Footer backUrl="/resultPage" nextText="HOME" nextUrl="/" />
+      <Footer backUrl="/resultPage" nextText="HOME" nextUrl="/">
+        <div className="col-xs-1 btn btn-dark btn-lg m-5 btn-footer">
+          <Link className="text-decoration-none text-light" to="/Result.pdf">
+            Generate PDF
+          </Link>
+        </div>
+      </Footer>
     </div>
   );
 };

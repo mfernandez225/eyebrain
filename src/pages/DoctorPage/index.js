@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../components/footer";
-import Choices from "../components/choices";
-import logo from "./images/logo-banner.png";
+import Footer from "../../components/footer";
+import Choices from "../../components/choices";
+import logo from "../images/logo_banner.png";
 
 const DoctorPage = ({
   questions: { timeAllotted, currentFlow, impactTalk, examLaneNotes },

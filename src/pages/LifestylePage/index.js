@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../components/footer";
-import "./lifestylePage.scss";
-import Choices from "../components/choices";
-import logo from "./images/logo-banner.png";
+import Footer from "../../components/footer";
+import "./style.scss";
+import Choices from "../../components/choices";
+import logo from "../images/logo_banner.png";
 
 const LifestylePage = ({
   questions: { frontDeskNotes, indexChampion, lifestyleIndex },

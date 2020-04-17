@@ -1,9 +1,8 @@
 import React from "react";
-import Footer from "../components/footer";
-import Choices from "../components/choices";
-import logo from "./images/logo-banner.png";
-
-import "./devicePage.scss";
+import Footer from "../../components/footer";
+import "./style.scss";
+import Choices from "../../components/choices";
+import logo from "../images/logo_banner.png";
 
 const DevicePage = ({
   questions: { deviceChampion, techNotes, deviceRuns },

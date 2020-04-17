@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../components/footer";
-import "./home.scss";
-import logo from "./images/logo-banner.png";
+import Footer from "../../components/footer";
+import "./style.scss";
+import logo from "../images/logo_banner.png";
 
 const Home = ({
   questions: {
