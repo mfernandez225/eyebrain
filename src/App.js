@@ -13,36 +13,33 @@ import "./App.css";
 function App() {
   const [questions, setQuestions] = useState({
     // HOME PAGE
-    practiceName: "Marc's Practice",
-    visionAffiliations: "Vision Source and Eye Doc",
-    managedCare: "VSP, EM",
-    investQuestion: "Make that money!!!",
-    odDays: "5",
-    dailyComps: "10",
-    numberOfOd: "1",
-    officeManager: "Tina",
-    frontDeskStaff: "Robin, Trish, and Luke",
-    numberOfTechs: "4",
-    opticians: "Tracy and Kim",
-    whatMotivates: "Pizza Parties",
+    practiceName: "",
+    visionAffiliations: "",
+    managedCare: "",
+    investQuestion: "",
+    odDays: "",
+    dailyComps: "",
+    numberOfOd: "",
+    officeManager: "",
+    frontDeskStaff: "",
+    numberOfTechs: "",
+    opticians: "",
+    whatMotivates: "",
     // LIFESTYLE PAGE
-    frontDeskNotes:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem quas, soluta debitis adipisci est fugit aperiam aspernatur numquam assumenda ad eos. Quidem ducimus sed asperiores, amet vitae error accusamus",
-    indexChampion: "Trish",
-    lifestyleIndex: 1,
+    frontDeskNotes: "",
+    indexChampion: "",
+    lifestyleIndex: "",
     // DEVICE PAGE
-    deviceChampion: "Hank",
-    techNotes:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem quas, soluta debitis adipisci est fugit aperiam aspernatur numquam assumenda ad eos. Quidem ducimus sed asperiores, amet vitae error accusamus",
-    deviceRuns: 0.5,
+    deviceChampion: "",
+    techNotes: "",
+    deviceRuns: "",
     // DOCTOR PAGE
-    timeAllotted: "15",
-    currentFlow: "Hands straight to optician with one RX",
-    impactTalk: 0.5,
-    examLaneNotes:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem quas, soluta debitis adipisci est fugit aperiam aspernatur numquam assumenda ad eos. Quidem ducimus sed asperiores, amet vitae error accusamus",
+    timeAllotted: "",
+    currentFlow: "",
+    impactTalk: "",
+    examLaneNotes: "",
     // PROFIT PAGE
-    lensConversion: 0.05,
+    lensConversion: "",
   });
   const [calculations, setCalculations] = useState({});
 
