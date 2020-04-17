@@ -38,6 +38,22 @@ const ProfitPage = ({
         </h3>
       </div>
       <div className="container">
+        <div className="border border-dark bg-light rounded p-5 mb-3">
+          <div className="row col-sm justify-content-center m-1">
+            <h3 className="text-success text-center font-weight-bold">
+              Neurolens Conversion
+            </h3>
+          </div>
+          <Choices
+            choices={[
+              { label: "20%", value: 0.2 },
+              { label: "10%", value: 0.1 },
+              { label: "5%", value: 0.05 },
+            ]}
+            setChoice={(value) => setQuestionValue("lensConversion", value)}
+            value={lensConversion}
+          />
+        </div>
         <div className="row mb-3">
           <div className="col-sm-4 mb-3 font-weight-bold">
             <div className="card text-success bg-white">
@@ -101,22 +117,6 @@ const ProfitPage = ({
           </div>
         </div>
         <div>
-          <div className="border border-dark bg-light rounded p-5 mb-3">
-            <div className="row col-sm justify-content-center m-1">
-              <h3 className="text-success text-center font-weight-bold">
-                Neurolens Conversion
-              </h3>
-            </div>
-            <Choices
-              choices={[
-                { label: "20%", value: 0.2 },
-                { label: "10%", value: 0.1 },
-                { label: "5%", value: 0.05 },
-              ]}
-              setChoice={(value) => setQuestionValue("lensConversion", value)}
-              value={lensConversion}
-            />
-          </div>
           <div className="border border-dark bg-light p-3 rounded mb-3">
             <div className="row col-sm justify-content-center m-1">
               <h3 className="text-success font-weight-bold">Front Desk</h3>
