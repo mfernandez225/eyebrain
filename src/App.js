@@ -99,10 +99,13 @@ function App() {
       yearlyRoi: newYearlyConversions * 400,
     }));
 
-    const deviceTimeInvested = Math.round(deviceRuns * 3);
-    console.log(deviceTimeInvested);
-    const odTalkTimeInvested = Math.round(whoToTalkTo * 5);
-    console.log(odTalkTimeInvested);
+    const deviceTimeInvested = whoToRun * 3;
+    const impactTalkTimeInvested = whoToTalkTo * 5;
+    setCalculations((prev) => ({
+      ...prev,
+      deviceTimeInvested,
+      impactTalkTimeInvested,
+    }));
   }, [
     dailyComps,
     lifestyleIndex,

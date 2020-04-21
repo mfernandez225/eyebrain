@@ -5,7 +5,7 @@ import logo from "../images/logo_banner.png";
 
 const DoctorPage = ({
   questions: { timeAllotted, currentFlow, impactTalk, examLaneNotes },
-  calculations: { whoToTalkTo },
+  calculations: { whoToTalkTo, impactTalkTimeInvested },
   handleQuestionChange,
   setQuestionValue,
 }) => {
@@ -77,6 +77,12 @@ const DoctorPage = ({
             value={examLaneNotes}
             onChange={handleQuestionChange}
           />
+        </div>
+        <div>
+          <h5 className="text-muted text-right mt-5">
+            {" "}
+            Time Invested: {impactTalkTimeInvested || ""} minutes
+          </h5>
         </div>
       </div>
       <Footer backUrl="/devicePage" nextUrl="/resultPage" />

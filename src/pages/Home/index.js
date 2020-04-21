@@ -71,7 +71,7 @@ const Home = ({
           <input
             className="form-control"
             type="text"
-            placeholder="How is your managed care in your practice?"
+            placeholder="How is managed care broken down in your practice?"
             name="managedCare"
             value={managedCare}
             onChange={handleQuestionChange}
@@ -85,7 +85,7 @@ const Home = ({
           <input
             className="form-control"
             type="text"
-            placeholder="Patients lives changed? Practice Profitibility? Pay off the device ASAP?"
+            placeholder="Patients lives changed?   Practice Profitibility?   Pay off the device ASAP?"
             name="whatMotivates"
             value={whatMotivates}
             onChange={handleQuestionChange}

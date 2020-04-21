@@ -6,7 +6,7 @@ import logo from "../images/logo_banner.png";
 
 const DevicePage = ({
   questions: { deviceChampion, techNotes, deviceRuns },
-  calculations: { whoToRun },
+  calculations: { whoToRun, deviceTimeInvested },
   handleQuestionChange,
   setQuestionValue,
 }) => {
@@ -62,6 +62,11 @@ const DevicePage = ({
             value={techNotes}
             onChange={handleQuestionChange}
           />
+        </div>
+        <div>
+          <h5 className="text-muted text-right mt-5">
+            Time Invested: {deviceTimeInvested || ""} minutes
+          </h5>
         </div>
       </div>
       <Footer backUrl="/lifestylePage" nextUrl="/DoctorPage" />

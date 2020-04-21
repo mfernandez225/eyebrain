@@ -89,7 +89,7 @@ const PracticeInfo = ({
           <input
             className="form-control"
             type="text"
-            placeholder="Front Desk Staff"
+            placeholder="# Front Desk Staff"
             name="frontDeskStaff"
             value={frontDeskStaff}
             onChange={handleQuestionChange}
@@ -115,7 +115,7 @@ const PracticeInfo = ({
           <input
             className="form-control"
             type="text"
-            placeholder="# of opticians"
+            placeholder="# of Opticians"
             name="opticians"
             value={opticians}
             onChange={handleQuestionChange}

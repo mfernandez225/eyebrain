@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/footer";
 import NumberFormat from "react-number-format";
 import Choices from "../../components/choices";
@@ -17,8 +17,6 @@ const ProfitPage = ({
     whoToIndex,
     whoToRun,
     whoToTalkTo,
-    deviceTimeInvested,
-    odTalkTimeInvested,
   },
   setQuestionValue,
 }) => {
@@ -27,6 +25,10 @@ const ProfitPage = ({
     thousandSeparator: true,
     prefix: "$",
   };
+
+  const [frontDeskOpen, setFrontDeskOpen] = useState(false);
+  const [technicianOpen, setTechnicianOpen] = useState(false);
+  const [impactTalkOpen, setImpactTalkOpen] = useState(false);
 
   return (
     <div className="profitPage">
@@ -120,56 +122,198 @@ const ProfitPage = ({
         </div>
 
         <div>
-          <div className="border border-dark bg-light p-3 rounded mb-3">
-            <div className="row col-sm justify-content-center m-1">
-              <h3 className="text-success font-weight-bold">Front Desk</h3>
+          <div className="border border-dark bg-light p-3 rounded mb-2">
+            <div className="row col-sm justify-content-between">
+              <h5 className="text-success font-weight-bolder">
+                Daily Indexes: {whoToIndex}
+              </h5>
+              <button
+                className="btn btn-link text-dark"
+                onClick={() => setFrontDeskOpen((prev) => !prev)}
+              >
+                {frontDeskOpen ? (
+                  <svg
+                    class="bi bi-chevron-up"
+                    width="1.6em"
+                    height="1.6em"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    class="bi bi-chevron-down"
+                    width="1.6em"
+                    height="1.6em"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                )}
+              </button>
             </div>
-            <h4 className="border border-success text-center font-weight-bolder m-2 p-5">
-              Daily Indexes: {whoToIndex}
-            </h4>
-            <Choices
-              choices={[
-                { label: "100%", value: 1 },
-                { label: "90%", value: 0.9 },
-                { label: "75%", value: 0.75 },
-              ]}
-              setChoice={(value) => setQuestionValue("lifestyleIndex", value)}
-              value={lifestyleIndex}
-            />
+            {frontDeskOpen && (
+              <>
+                <h4 className="border border-success text-center font-weight-bolder m-2 p-5">
+                  Percentage of patients you index
+                </h4>
+                <Choices
+                  choices={[
+                    { label: "100%", value: 1 },
+                    { label: "90%", value: 0.9 },
+                    { label: "75%", value: 0.75 },
+                  ]}
+                  setChoice={(value) =>
+                    setQuestionValue("lifestyleIndex", value)
+                  }
+                  value={lifestyleIndex}
+                />
+              </>
+            )}
           </div>
-          <div className="border border-dark bg-light p-3 rounded mb-3">
-            <div className="row col-sm justify-content-center m-1">
-              <h3 className="text-success font-weight-bold">Technicians</h3>
+          <div className="border border-dark bg-light p-3 rounded mb-2">
+            <div className="row col-sm justify-content-between">
+              <h5 className="text-success font-weight-bolder">
+                {" "}
+                Daily Device Runs: {whoToRun}
+              </h5>
+              <button
+                className="btn btn-link text-dark"
+                onClick={() => setTechnicianOpen((prev) => !prev)}
+              >
+                {technicianOpen ? (
+                  <svg
+                    class="bi bi-chevron-up"
+                    width="1.6em"
+                    height="1.6em"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    class="bi bi-chevron-down"
+                    width="1.6em"
+                    height="1.6em"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                )}
+              </button>
             </div>
-            <h4 className="border border-success text-center font-weight-bolder m-2 p-5">
-              Daily Device Runs: {whoToRun}
-            </h4>
-            <Choices
-              choices={[
-                { label: "All Patients", value: 1 },
-                { label: "Symptomatic Patients", value: 0.5 },
-                { label: "Highly Symptomatic", value: 0.25 },
-              ]}
-              setChoice={(value) => setQuestionValue("deviceRuns", value)}
-              value={deviceRuns}
-            />
+            {technicianOpen && (
+              <>
+                <h4 className="border border-success text-center font-weight-bolder m-2 p-5">
+                  What patients do you run on the device?
+                </h4>
+                <Choices
+                  choices={[
+                    { label: "All Patients", value: 1 },
+                    { label: "Symptomatic Patients", value: 0.5 },
+                    { label: "Highly Symptomatic", value: 0.25 },
+                  ]}
+                  setChoice={(value) => setQuestionValue("deviceRuns", value)}
+                  value={deviceRuns}
+                />
+                <div>
+                  <h5 className="text-muted text-center mt-3">
+                    {" "}
+                    Time Invested: {whoToRun * 4 || ""} minutes
+                  </h5>
+                </div>
+              </>
+            )}
           </div>
-          <div className="border border-dark bg-light p-3 rounded mb-3">
-            <div className="row col-sm justify-content-center m-1">
-              <h3 className="text-success font-weight-bold">Exam Lane</h3>
+          <div className="border border-dark bg-light p-3 rounded mb-2">
+            <div className="row col-sm justify-content-between">
+              <h5 className="text-success font-weight-bolder">
+                Daily Impactful Conversations: {whoToTalkTo}
+              </h5>
+              <button
+                className="btn btn-link text-dark"
+                onClick={() => setImpactTalkOpen((prev) => !prev)}
+              >
+                {impactTalkOpen ? (
+                  <svg
+                    class="bi bi-chevron-up"
+                    width="1.6em"
+                    height="1.6em"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    class="bi bi-chevron-down"
+                    width="1.6em"
+                    height="1.6em"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                )}
+              </button>
             </div>
-            <h4 className="border border-success text-center font-weight-bolder m-2 p-5">
-              Daily Impactful Conversations: {whoToTalkTo}
-            </h4>
-            <Choices
-              choices={[
-                { label: "100%", value: 1 },
-                { label: "50%", value: 0.5 },
-                { label: "25%", value: 0.25 },
-              ]}
-              setChoice={(value) => setQuestionValue("impactTalk", value)}
-              value={impactTalk}
-            />
+            {impactTalkOpen && (
+              <>
+                <h4 className="border border-success text-center font-weight-bolder m-2 p-5">
+                  What Percentage of Patients will you have Impactful
+                  Conversations with?{" "}
+                </h4>
+                <Choices
+                  choices={[
+                    { label: "100%", value: 1 },
+                    { label: "50%", value: 0.5 },
+                    { label: "25%", value: 0.25 },
+                  ]}
+                  setChoice={(value) => setQuestionValue("impactTalk", value)}
+                  value={impactTalk}
+                />
+                <div>
+                  <h5 className="text-muted text-center mt-3">
+                    {" "}
+                    Time Invested: {whoToTalkTo * 5 || ""} minutes
+                  </h5>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

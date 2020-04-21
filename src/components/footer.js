@@ -15,27 +15,27 @@ const Footer = ({
   return (
     <footer className="row justify-content-between">
       {(backUrl && (
-        <div
-          className={cx(`col-xs-1 btn btn-success btn-lg m-5 btn-footer`, {
-            disabled: backDisabled,
-          })}
-        >
-          <Link className="text-decoration-none text-light" to={backUrl}>
+        <Link className="text-decoration-none text-light" to={backUrl}>
+          <div
+            className={cx(`col-xs-1 btn btn-success btn-lg m-5 btn-footer`, {
+              disabled: backDisabled,
+            })}
+          >
             {backText || "BACK"}
-          </Link>
-        </div>
+          </div>
+        </Link>
       )) || <span></span>}
       {children}
       {nextUrl && (
-        <div
-          className={cx(`col-xs-1 btn btn-success btn-lg m-5 btn-footer`, {
-            disabled: nextDisabled,
-          })}
-        >
-          <Link className="text-decoration-none text-light" to={nextUrl}>
+        <Link className="text-decoration-none text-light" to={nextUrl}>
+          <div
+            className={cx(`col-xs-1 btn btn-success btn-lg m-5 btn-footer`, {
+              disabled: nextDisabled,
+            })}
+          >
             {nextText || "NEXT"}
-          </Link>
-        </div>
+          </div>
+        </Link>
       )}
     </footer>
   );
