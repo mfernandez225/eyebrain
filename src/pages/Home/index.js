@@ -52,7 +52,7 @@ const Home = ({
           />
         </div>
         <div className="row col-xs mb-1">
-          <h5>Vision Affiliations (i.e. Vision Source, Buying Group)</h5>
+          <h5>Vision Affiliations (i.e. Vision Source, iDoc, Buying Group)</h5>
         </div>
         <div className="row col-xs mb-3">
           <input

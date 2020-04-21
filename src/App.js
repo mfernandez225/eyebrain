@@ -100,7 +100,7 @@ function App() {
     }));
 
     const deviceTimeInvested = whoToRun * 3;
-    const impactTalkTimeInvested = whoToTalkTo * 5;
+    const impactTalkTimeInvested = whoToTalkTo * 3;
     setCalculations((prev) => ({
       ...prev,
       deviceTimeInvested,

@@ -23,7 +23,7 @@ const LifestylePage = ({
           </h3>
         </div>
         <div className="row col-xs text-center justify-content-center m-1">
-          <h5>Percentage of patients you index</h5>
+          <h5>Percentage of patients you will hand the lifestyle index to</h5>
         </div>
         <Choices
           choices={[
