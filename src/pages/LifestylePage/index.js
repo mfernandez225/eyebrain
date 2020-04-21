@@ -67,7 +67,7 @@ const LifestylePage = ({
           />
         </div>
       </div>
-      <Footer backUrl="/" nextUrl="/devicePage" />
+      <Footer backUrl="/practiceInfo" nextUrl="/devicePage" />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Home from "./pages/Home";
+import PracticeInfo from "./pages/PracticeInfo";
 import LifestylePage from "./pages/LifestylePage";
 import DevicePage from "./pages/DevicePage";
 import DoctorPage from "./pages/DoctorPage";
@@ -15,9 +16,11 @@ function App() {
   const [questions, setQuestions] = useState({
     // HOME PAGE
     practiceName: "",
+    investQuestion: "",
     visionAffiliations: "",
     managedCare: "",
-    investQuestion: "",
+    whatMotivates: "",
+    // PRACTICE INFO
     odDays: "",
     dailyComps: "",
     numberOfOd: "",
@@ -25,7 +28,6 @@ function App() {
     frontDeskStaff: "",
     numberOfTechs: "",
     opticians: "",
-    whatMotivates: "",
     // LIFESTYLE PAGE
     frontDeskNotes: "",
     indexChampion: "",
@@ -96,6 +98,11 @@ function App() {
       monthlyRoi: newMonthlyConversions * 400,
       yearlyRoi: newYearlyConversions * 400,
     }));
+
+    const deviceTimeInvested = Math.round(deviceRuns * 3);
+    console.log(deviceTimeInvested);
+    const odTalkTimeInvested = Math.round(whoToTalkTo * 5);
+    console.log(odTalkTimeInvested);
   }, [
     dailyComps,
     lifestyleIndex,
@@ -132,6 +139,12 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home
+                questions={questions}
+                handleQuestionChange={handleQuestionChange}
+              />
+            </Route>
+            <Route exact path="/practiceInfo">
+              <PracticeInfo
                 questions={questions}
                 handleQuestionChange={handleQuestionChange}
               />

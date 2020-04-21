@@ -17,6 +17,8 @@ const ProfitPage = ({
     whoToIndex,
     whoToRun,
     whoToTalkTo,
+    deviceTimeInvested,
+    odTalkTimeInvested,
   },
   setQuestionValue,
 }) => {
@@ -54,7 +56,7 @@ const ProfitPage = ({
             value={lensConversion}
           />
         </div>
-        <div className="row mb-3">
+        <div className="row mt-3">
           <div className="col-sm-4 mb-3 font-weight-bold">
             <div className="card text-success bg-white">
               <div className="card-body border border-dark">
@@ -65,7 +67,7 @@ const ProfitPage = ({
                   Patients Helped: <h1>{weeklyConversions}</h1>
                 </div>
                 <div className="card-text font-weight-bolder text-center border border-success rounded p-3">
-                  Weekly Revenue:
+                  Weekly Profit:
                   <h1>
                     <NumberFormat value={weeklyRoi} {...currencyProps} />
                   </h1>
@@ -85,7 +87,7 @@ const ProfitPage = ({
                 </div>
                 <div className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
-                  Monthly Revenue:
+                  Monthly Profit:
                   <h1>
                     {" "}
                     <NumberFormat value={monthlyRoi} {...currencyProps} />
@@ -106,7 +108,7 @@ const ProfitPage = ({
                 </div>
                 <div className="card-text font-weight-bolder text-center border border-success rounded p-3">
                   {" "}
-                  Yearly Revenue:
+                  Yearly Profit:
                   <h1>
                     {" "}
                     <NumberFormat value={yearlyRoi} {...currencyProps} />
@@ -116,6 +118,7 @@ const ProfitPage = ({
             </div>
           </div>
         </div>
+
         <div>
           <div className="border border-dark bg-light p-3 rounded mb-3">
             <div className="row col-sm justify-content-center m-1">
