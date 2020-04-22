@@ -13,3 +13,13 @@ Add time investment piece
 Add Profit instead of Revenue
 
 Break up the questioning and play into two applications
+
+Matt Notes
+
+What motivates you and your staff about this technology?
+
+Time maybe a detractor
+
+Device Run Metric
+
+Break it up into a Sales Tool vs Practice Management Tool
