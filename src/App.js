@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Home from "./pages/Home";
+import StartingPage from "./pages/StartingPage";
 import PracticeInfo from "./pages/PracticeInfo";
 import LifestylePage from "./pages/LifestylePage";
 import DevicePage from "./pages/DevicePage";
@@ -8,6 +9,7 @@ import ResultPage from "./pages/ResultPage";
 import ProfitPage from "./pages/ProfitPage";
 import ScrollToTop from "./components/scrollToTop";
 import ResultPDF from "./pages/pdf";
+import ProfitCalculator from "./pages/ProfitCalculator";
 import { PDFViewer } from "@react-pdf/renderer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -141,6 +143,9 @@ function App() {
         <ScrollToTop>
           <Switch>
             <Route exact path="/">
+              <StartingPage />
+            </Route>
+            <Route exact path="/home">
               <Home
                 questions={questions}
                 handleQuestionChange={handleQuestionChange}
@@ -181,6 +186,14 @@ function App() {
             </Route>
             <Route exact path="/profitPage">
               <ProfitPage
+                questions={questions}
+                handleQuestionChange={handleQuestionChange}
+                setQuestionValue={setQuestionValue}
+                calculations={calculations}
+              />
+            </Route>
+            <Route exact path="/profitCalculator">
+              <ProfitCalculator
                 questions={questions}
                 handleQuestionChange={handleQuestionChange}
                 setQuestionValue={setQuestionValue}

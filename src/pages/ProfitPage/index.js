@@ -72,7 +72,7 @@ const ProfitPage = ({
                   Profit per Test:
                   <h1>
                     <NumberFormat
-                      value={Math.round(weeklyRoi / odDays / whoToRun)}
+                      value={Math.round(weeklyRoi / odDays / whoToRun) || 0}
                       {...currencyProps}
                     />
                   </h1>

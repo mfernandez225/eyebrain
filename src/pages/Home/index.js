@@ -92,7 +92,7 @@ const Home = ({
           />
         </div>
       </div>
-      <Footer nextUrl="/PracticeInfo" nextDisabled={!canContinue} />
+      <Footer backUrl="/" nextUrl="/PracticeInfo" nextDisabled={!canContinue} />
     </div>
   );
 };
